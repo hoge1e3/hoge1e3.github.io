@@ -10001,7 +10001,7 @@ Promise.resolve().then(function () {
 var s,
   t,
   l,
-  h = function (e) {
+  y = function (e) {
     if (!e || e.length == 0) return {};
     for (var r = {}, n = 0; n < e.length; ++n) {
       var o = e[n].split("=", 2);
@@ -10028,11 +10028,11 @@ function x() {
     t.isRunning() && (t.pause(), e = !0);
   });
 }
-function y(_x, _x2) {
-  return _y.apply(this, arguments);
+function h(_x, _x2) {
+  return _h.apply(this, arguments);
 }
-function _y() {
-  _y = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e, r) {
+function _h() {
+  _h = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e, r) {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -10056,7 +10056,7 @@ function _y() {
       }
     }, _callee);
   }));
-  return _y.apply(this, arguments);
+  return _h.apply(this, arguments);
 }
 function k() {
   return $("#emulator").find("canvas");
@@ -10114,19 +10114,19 @@ function _M() {
               t.resume();
             });
             r = e.n || "Game", o = e.url, a = e.r;
-            if (!o) {
+            if (!(window.platform = t, o)) {
               _context2.next = 9;
               break;
             }
             return _context2.abrupt("return", (console.log(o), (0, _chunkQEB57REV.x)(o, function (f) {
-              y(r, f);
-            }, "arraybuffer"), !0));
+              h(r, f);
+            }, "arraybuffer"), t));
           case 9:
             if (a) {
               i = (0, _chunkQEB57REV.l)(atob(a));
               n = new _chunkQEB57REV.k().decode(i);
             }
-            return _context2.abrupt("return", (x(), y(r, n), !0));
+            return _context2.abrupt("return", (x(), h(r, n), t));
           case 11:
           case "end":
             return _context2.stop();
@@ -10157,23 +10157,22 @@ function _d() {
             _context3.next = 6;
             return M(e);
           case 6:
-            _context3.next = 11;
-            break;
-          case 8:
-            _context3.prev = 8;
+            return _context3.abrupt("return", _context3.sent);
+          case 9:
+            _context3.prev = 9;
             _context3.t0 = _context3["catch"](2);
             console.log(_context3.t0), alert('Platform "' + s + '" not supported.');
-          case 11:
+          case 12:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[2, 8]]);
+    }, _callee3, null, [[2, 9]]);
   }));
   return _d.apply(this, arguments);
 }
 function H() {
-  I(), h.p && d(h);
+  I(), y.p && d(y);
 }
 window.addEventListener("message", E, !1);
 function E(e) {

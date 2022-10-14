@@ -9796,7 +9796,7 @@ exports.I = yn;
 exports.H = K0;
 
 },{"./chunk-QEB57REV.js":3}],5:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9975,7 +9975,7 @@ var E = /*#__PURE__*/function () {
 }();
 exports.a = E;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./chunk-5XVCUSSZ.js":1,"./chunk-QEB57REV.js":3}],6:[function(require,module,exports){
 "use strict";
 
@@ -10106,7 +10106,7 @@ function _M() {
             }
             throw Error("Invalid platform '" + s + "'.");
           case 2:
-            exports.platform = t = new _chunkQEB57REV.J[s]($("#emuscreen")[0]);
+            exports.platform = t = new _chunkQEB57REV.J[s]($(e.screen || "#emuscreen")[0]);
             _context2.next = 5;
             return t.start();
           case 5:

@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.c = exports.b = exports.a = void 0;
-var _chunkY2G6ABZC = require("./chunk-Y2G6ABZC.js");
+var _chunkXND2JHFM = require("./chunk-XND2JHFM.js");
 var _chunkQEB57REV = require("./chunk-QEB57REV.js");
 function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
@@ -150,7 +150,7 @@ var b;
 var O = /*#__PURE__*/function () {
     function O(e, t, r) {
       _classCallCheck(this, O);
-      this.probe = new _chunkY2G6ABZC.n();
+      this.probe = new _chunkXND2JHFM.n();
       this.ram = new Uint8Array(16384);
       this.registers = new Uint8Array(8);
       this.spriteBuffer = new Uint8Array(256);
@@ -790,7 +790,7 @@ var oe = 2,
       _this3.cpuCyclesPerLine = _this3.cpuFrequency / (262 * 60);
       _this3.sampleRate = 262 * 60 * oe;
       _this3.overscan = !0;
-      _this3.cpu = new _chunkY2G6ABZC.c();
+      _this3.cpu = new _chunkXND2JHFM.c();
       return _this3;
     }
     _createClass(ve, [{
@@ -801,7 +801,7 @@ var oe = 2,
     }, {
       key: "init",
       value: function init(e, t, r) {
-        this.connectCPUMemoryBus(e), this.connectCPUIOBus(t), this.handler = (0, _chunkQEB57REV.W)(this.inputs, this.getKeyboardMap(), this.getKeyboardFunction()), this.psg = r, this.audioadapter = r && new _chunkY2G6ABZC.k(r.psg, oe, this.sampleRate);
+        this.connectCPUMemoryBus(e), this.connectCPUIOBus(t), this.handler = (0, _chunkQEB57REV.W)(this.inputs, this.getKeyboardMap(), this.getKeyboardFunction()), this.psg = r, this.audioadapter = r && new _chunkXND2JHFM.k(r.psg, oe, this.sampleRate);
       }
     }, {
       key: "connectVideo",
@@ -876,10 +876,10 @@ var oe = 2,
       }
     }]);
     return ve;
-  }(_chunkY2G6ABZC.q);
+  }(_chunkXND2JHFM.q);
 exports.c = ve;
 
-},{"./chunk-QEB57REV.js":3,"./chunk-Y2G6ABZC.js":4}],3:[function(require,module,exports){
+},{"./chunk-QEB57REV.js":3,"./chunk-XND2JHFM.js":4}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2315,7 +2315,7 @@ exports.u = exports.t = void 0;
 exports.v = g0;
 exports.w = void 0;
 exports.x = vn;
-exports.y = Rt;
+exports.y = Bt;
 exports.z = void 0;
 var _chunkQEB57REV = require("./chunk-QEB57REV.js");
 function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
@@ -4165,9 +4165,9 @@ function xn(h) {
     I = 0,
     k = 0,
     G = 0,
-    oe = 0,
+    ue = 0,
     A = 0,
-    R = 0,
+    B = 0,
     E = 0,
     U = 0,
     z = 57328,
@@ -4194,7 +4194,7 @@ function xn(h) {
     },
     Fe = 0,
     W = 0,
-    Be = 0,
+    Re = 0,
     _ = !1,
     C = !1,
     Ze = !1,
@@ -4204,7 +4204,7 @@ function xn(h) {
       PC: i,
       SP: z,
       IX: A,
-      IY: R,
+      IY: B,
       AF: (r << 8) + Xe(),
       BC: (c << 8) + l,
       DE: (x << 8) + d,
@@ -4212,11 +4212,11 @@ function xn(h) {
       AF_: (V << 8) + Ve(),
       BC_: (L << 8) + p,
       DE_: (I << 8) + k,
-      HL_: (G << 8) + oe,
+      HL_: (G << 8) + ue,
       IR: (E << 8) + U,
       im: Fe,
       iff1: W,
-      iff2: Be,
+      iff2: Re,
       halted: _,
       do_delayed_di: C,
       do_delayed_ei: Ze,
@@ -4224,10 +4224,10 @@ function xn(h) {
     };
   }
   function We(t) {
-    i = t.PC, z = t.SP, A = t.IX, R = t.IY, r = t.AF >> 8 & 255, Ue(t.AF), c = t.BC >> 8 & 255, l = t.BC & 255, x = t.DE >> 8 & 255, d = t.DE & 255, u = t.HL >> 8 & 255, a = t.HL & 255, V = t.AF_ >> 8 & 255, De(t.AF_), L = t.BC_ >> 8 & 255, p = t.BC_ & 255, I = t.DE_ >> 8 & 255, k = t.DE_ & 255, G = t.HL_ >> 8 & 255, oe = t.HL_ & 255, E = t.IR >> 8 & 255, U = t.IR & 255, Fe = t.im, W = t.iff1, Be = t.iff2, _ = t.halted, C = t.do_delayed_di, Ze = t.do_delayed_ei, te = t.cycle_counter;
+    i = t.PC, z = t.SP, A = t.IX, B = t.IY, r = t.AF >> 8 & 255, Ue(t.AF), c = t.BC >> 8 & 255, l = t.BC & 255, x = t.DE >> 8 & 255, d = t.DE & 255, u = t.HL >> 8 & 255, a = t.HL & 255, V = t.AF_ >> 8 & 255, De(t.AF_), L = t.BC_ >> 8 & 255, p = t.BC_ & 255, I = t.DE_ >> 8 & 255, k = t.DE_ & 255, G = t.HL_ >> 8 & 255, ue = t.HL_ & 255, E = t.IR >> 8 & 255, U = t.IR & 255, Fe = t.im, W = t.iff1, Re = t.iff2, _ = t.halted, C = t.do_delayed_di, Ze = t.do_delayed_ei, te = t.cycle_counter;
   }
   var K = function K() {
-      z = 57328, i = 0, r = 0, U = 0, Ue(0), Fe = 0, W = 0, Be = 0, _ = !1, C = !1, Ze = !1, te = 0;
+      z = 57328, i = 0, r = 0, U = 0, Ue(0), Fe = 0, W = 0, Re = 0, _ = !1, C = !1, Ze = !1, te = 0;
     },
     H = function H() {
       if (_) return 1;
@@ -4235,14 +4235,14 @@ function xn(h) {
         b = !1;
       C ? (C = !1, t = !0) : Ze && (Ze = !1, b = !0), U = U & 128 | (U & 127) + 1 & 127;
       var P = e.mem_read(i);
-      ue(P), i = i + 1 & 65535, t ? (W = 0, Be = 0) : b && (W = 1, Be = 1);
+      oe(P), i = i + 1 & 65535, t ? (W = 0, Re = 0) : b && (W = 1, Re = 1);
       var Le = te;
       return te = 0, Le;
     },
     Ae = function Ae(t, b) {
-      if (t) return U = U & 128 | (U & 127) + 1 & 127, _ = !1, Be = W, W = 0, we(i), i = 102, te += 11, !0;
+      if (t) return U = U & 128 | (U & 127) + 1 & 127, _ = !1, Re = W, W = 0, we(i), i = 102, te += 11, !0;
       if (W) {
-        if (U = U & 128 | (U & 127) + 1 & 127, _ = !1, W = 0, Be = 0, Fe === 0) i = i - 1 & 65535, ue(b), i = i + 1 & 65535, te += 2;else if (Fe === 1) we(i), i = 56, te += 13;else if (Fe === 2) {
+        if (U = U & 128 | (U & 127) + 1 & 127, _ = !1, W = 0, Re = 0, Fe === 0) i = i - 1 & 65535, oe(b), i = i + 1 & 65535, te += 2;else if (Fe === 1) we(i), i = 56, te += 13;else if (Fe === 2) {
           we(i);
           var P = E << 8 | b;
           i = e.mem_read(P) | e.mem_read(P + 1 & 65535) << 8, te += 19;
@@ -4250,7 +4250,7 @@ function xn(h) {
         return !0;
       }
     },
-    ue = function ue(t) {
+    oe = function oe(t) {
       var b = function b(Oe) {
         return (Oe & 7) == 0 ? c : (Oe & 7) == 1 ? l : (Oe & 7) == 2 ? x : (Oe & 7) == 3 ? d : (Oe & 7) == 4 ? u : (Oe & 7) == 5 ? a : (Oe & 7) == 6 ? e.mem_read(a | u << 8) : r;
       };
@@ -4413,7 +4413,7 @@ function xn(h) {
       var P = (a | u << 8) - 1;
       a = P & 255, u = (P & 65280) >>> 8, P = (l | c << 8) - 1, l = P & 255, c = (P & 65280) >>> 8, f.P = P ? 1 : 0;
     },
-    Re = function Re() {
+    Be = function Be() {
       c = N(c), e.mem_write(a | u << 8, e.io_read(c << 8 | l));
       var t = (a | u << 8) - 1;
       a = t & 255, u = (t & 65280) >>> 8, f.N = 1;
@@ -4676,7 +4676,7 @@ function xn(h) {
     He(!!f.C);
   }, S[217] = function () {
     var t = c;
-    c = L, L = t, t = l, l = p, p = t, t = x, x = I, I = t, t = d, d = k, k = t, t = u, u = G, G = t, t = a, a = oe, oe = t;
+    c = L, L = t, t = l, l = p, p = t, t = x, x = I, I = t, t = d, d = k, k = t, t = u, u = G, G = t, t = a, a = ue, ue = t;
   }, S[218] = function () {
     ye(!!f.C);
   }, S[219] = function () {
@@ -4686,7 +4686,7 @@ function xn(h) {
   }, S[221] = function () {
     U = U & 128 | (U & 127) + 1 & 127, i = i + 1 & 65535;
     var t = e.mem_read(i),
-      b = B[t];
+      b = R[t];
     b ? (b(), te += s[t]) : (i = i - 1 & 65535, te += o[0]);
   }, S[222] = function () {
     i = i + 1 & 65535, D(e.mem_read(i));
@@ -4760,10 +4760,10 @@ function xn(h) {
   }, S[253] = function () {
     U = U & 128 | (U & 127) + 1 & 127, i = i + 1 & 65535;
     var t = e.mem_read(i),
-      b = B[t];
+      b = R[t];
     if (b) {
       var P = A;
-      A = R, b(), R = A, A = P, te += s[t];
+      A = B, b(), B = A, A = P, te += s[t];
     } else i = i - 1 & 65535, te += o[0];
   }, S[254] = function () {
     i = i + 1 & 65535, F(e.mem_read(i));
@@ -4784,7 +4784,7 @@ function xn(h) {
   }, y[68] = function () {
     $();
   }, y[69] = function () {
-    i = be() - 1 & 65535, W = Be;
+    i = be() - 1 & 65535, W = Re;
   }, y[70] = function () {
     Fe = 0;
   }, y[71] = function () {
@@ -4820,11 +4820,11 @@ function xn(h) {
   }, y[84] = function () {
     $();
   }, y[85] = function () {
-    i = be() - 1 & 65535, W = Be;
+    i = be() - 1 & 65535, W = Re;
   }, y[86] = function () {
     Fe = 1;
   }, y[87] = function () {
-    r = E, f.S = r & 128 ? 1 : 0, f.Z = r ? 0 : 1, f.H = 0, f.P = Be, f.N = 0, Q(r);
+    r = E, f.S = r & 128 ? 1 : 0, f.Z = r ? 0 : 1, f.H = 0, f.P = Re, f.N = 0, Q(r);
   }, y[88] = function () {
     d = ve(c << 8 | l);
   }, y[89] = function () {
@@ -4838,11 +4838,11 @@ function xn(h) {
   }, y[92] = function () {
     $();
   }, y[93] = function () {
-    i = be() - 1 & 65535, W = Be;
+    i = be() - 1 & 65535, W = Re;
   }, y[94] = function () {
     Fe = 2;
   }, y[95] = function () {
-    r = U, f.S = r & 128 ? 1 : 0, f.Z = r ? 0 : 1, f.H = 0, f.P = Be, f.N = 0, Q(r);
+    r = U, f.S = r & 128 ? 1 : 0, f.Z = r ? 0 : 1, f.H = 0, f.P = Re, f.N = 0, Q(r);
   }, y[96] = function () {
     u = ve(c << 8 | l);
   }, y[97] = function () {
@@ -4856,7 +4856,7 @@ function xn(h) {
   }, y[100] = function () {
     $();
   }, y[101] = function () {
-    i = be() - 1 & 65535, W = Be;
+    i = be() - 1 & 65535, W = Re;
   }, y[102] = function () {
     Fe = 0;
   }, y[103] = function () {
@@ -4877,7 +4877,7 @@ function xn(h) {
   }, y[108] = function () {
     $();
   }, y[109] = function () {
-    i = be() - 1 & 65535, W = Be;
+    i = be() - 1 & 65535, W = Re;
   }, y[110] = function () {
     Fe = 0;
   }, y[111] = function () {
@@ -4898,7 +4898,7 @@ function xn(h) {
   }, y[116] = function () {
     $();
   }, y[117] = function () {
-    i = be() - 1 & 65535, W = Be;
+    i = be() - 1 & 65535, W = Re;
   }, y[118] = function () {
     Fe = 1;
   }, y[120] = function () {
@@ -4914,7 +4914,7 @@ function xn(h) {
   }, y[124] = function () {
     $();
   }, y[125] = function () {
-    i = be() - 1 & 65535, W = Be;
+    i = be() - 1 & 65535, W = Re;
   }, y[126] = function () {
     Fe = 2;
   }, y[160] = function () {
@@ -4930,7 +4930,7 @@ function xn(h) {
   }, y[169] = function () {
     Pe();
   }, y[170] = function () {
-    Re();
+    Be();
   }, y[171] = function () {
     Ye();
   }, y[176] = function () {
@@ -4946,224 +4946,224 @@ function xn(h) {
   }, y[185] = function () {
     Pe(), !f.Z && (c || l) && (te += 5, i = i - 2 & 65535);
   }, y[186] = function () {
-    Re(), c && (te += 5, i = i - 2 & 65535);
+    Be(), c && (te += 5, i = i - 2 & 65535);
   }, y[187] = function () {
     Ye(), c && (te += 5, i = i - 2 & 65535);
   };
-  var B = [];
-  B[9] = function () {
+  var R = [];
+  R[9] = function () {
     e0(l | c << 8);
-  }, B[25] = function () {
+  }, R[25] = function () {
     e0(d | x << 8);
-  }, B[33] = function () {
+  }, R[33] = function () {
     i = i + 1 & 65535, A = e.mem_read(i), i = i + 1 & 65535, A |= e.mem_read(i) << 8;
-  }, B[34] = function () {
+  }, R[34] = function () {
     i = i + 1 & 65535;
     var t = e.mem_read(i);
     i = i + 1 & 65535, t |= e.mem_read(i) << 8, e.mem_write(t, A & 255), e.mem_write(t + 1 & 65535, A >>> 8 & 255);
-  }, B[35] = function () {
+  }, R[35] = function () {
     A = A + 1 & 65535;
-  }, B[36] = function () {
+  }, R[36] = function () {
     A = w(A >>> 8) << 8 | A & 255;
-  }, B[37] = function () {
+  }, R[37] = function () {
     A = N(A >>> 8) << 8 | A & 255;
-  }, B[38] = function () {
+  }, R[38] = function () {
     i = i + 1 & 65535, A = e.mem_read(i) << 8 | A & 255;
-  }, B[41] = function () {
+  }, R[41] = function () {
     e0(A);
-  }, B[42] = function () {
+  }, R[42] = function () {
     i = i + 1 & 65535;
     var t = e.mem_read(i);
     i = i + 1 & 65535, t |= e.mem_read(i) << 8, A = e.mem_read(t), A |= e.mem_read(t + 1 & 65535) << 8;
-  }, B[43] = function () {
+  }, R[43] = function () {
     A = A - 1 & 65535;
-  }, B[44] = function () {
+  }, R[44] = function () {
     A = w(A & 255) | A & 65280;
-  }, B[45] = function () {
+  }, R[45] = function () {
     A = N(A & 255) | A & 65280;
-  }, B[46] = function () {
+  }, R[46] = function () {
     i = i + 1 & 65535, A = e.mem_read(i) & 255 | A & 65280;
-  }, B[52] = function () {
+  }, R[52] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i)),
       b = e.mem_read(t + A & 65535);
     e.mem_write(t + A & 65535, w(b));
-  }, B[53] = function () {
+  }, R[53] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i)),
       b = e.mem_read(t + A & 65535);
     e.mem_write(t + A & 65535, N(b));
-  }, B[54] = function () {
+  }, R[54] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     i = i + 1 & 65535, e.mem_write(A + t & 65535, e.mem_read(i));
-  }, B[57] = function () {
+  }, R[57] = function () {
     e0(z);
-  }, B[68] = function () {
+  }, R[68] = function () {
     c = A >>> 8 & 255;
-  }, B[69] = function () {
+  }, R[69] = function () {
     c = A & 255;
-  }, B[70] = function () {
+  }, R[70] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     c = e.mem_read(A + t & 65535);
-  }, B[76] = function () {
+  }, R[76] = function () {
     l = A >>> 8 & 255;
-  }, B[77] = function () {
+  }, R[77] = function () {
     l = A & 255;
-  }, B[78] = function () {
+  }, R[78] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     l = e.mem_read(A + t & 65535);
-  }, B[84] = function () {
+  }, R[84] = function () {
     x = A >>> 8 & 255;
-  }, B[85] = function () {
+  }, R[85] = function () {
     x = A & 255;
-  }, B[86] = function () {
+  }, R[86] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     x = e.mem_read(A + t & 65535);
-  }, B[92] = function () {
+  }, R[92] = function () {
     d = A >>> 8 & 255;
-  }, B[93] = function () {
+  }, R[93] = function () {
     d = A & 255;
-  }, B[94] = function () {
+  }, R[94] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     d = e.mem_read(A + t & 65535);
-  }, B[96] = function () {
+  }, R[96] = function () {
     A = A & 255 | c << 8;
-  }, B[97] = function () {
+  }, R[97] = function () {
     A = A & 255 | l << 8;
-  }, B[98] = function () {
+  }, R[98] = function () {
     A = A & 255 | x << 8;
-  }, B[99] = function () {
+  }, R[99] = function () {
     A = A & 255 | d << 8;
-  }, B[100] = function () {}, B[101] = function () {
+  }, R[100] = function () {}, R[101] = function () {
     A = A & 255 | (A & 255) << 8;
-  }, B[102] = function () {
+  }, R[102] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     u = e.mem_read(A + t & 65535);
-  }, B[103] = function () {
+  }, R[103] = function () {
     A = A & 255 | r << 8;
-  }, B[104] = function () {
+  }, R[104] = function () {
     A = A & 65280 | c;
-  }, B[105] = function () {
+  }, R[105] = function () {
     A = A & 65280 | l;
-  }, B[106] = function () {
+  }, R[106] = function () {
     A = A & 65280 | x;
-  }, B[107] = function () {
+  }, R[107] = function () {
     A = A & 65280 | d;
-  }, B[108] = function () {
+  }, R[108] = function () {
     A = A & 65280 | A >>> 8;
-  }, B[109] = function () {}, B[110] = function () {
+  }, R[109] = function () {}, R[110] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     a = e.mem_read(A + t & 65535);
-  }, B[111] = function () {
+  }, R[111] = function () {
     A = A & 65280 | r;
-  }, B[112] = function () {
+  }, R[112] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     e.mem_write(A + t & 65535, c);
-  }, B[113] = function () {
+  }, R[113] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     e.mem_write(A + t & 65535, l);
-  }, B[114] = function () {
+  }, R[114] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     e.mem_write(A + t & 65535, x);
-  }, B[115] = function () {
+  }, R[115] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     e.mem_write(A + t & 65535, d);
-  }, B[116] = function () {
+  }, R[116] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     e.mem_write(A + t & 65535, u);
-  }, B[117] = function () {
+  }, R[117] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     e.mem_write(A + t & 65535, a);
-  }, B[119] = function () {
+  }, R[119] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     e.mem_write(A + t & 65535, r);
-  }, B[124] = function () {
+  }, R[124] = function () {
     r = A >>> 8 & 255;
-  }, B[125] = function () {
+  }, R[125] = function () {
     r = A & 255;
-  }, B[126] = function () {
+  }, R[126] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     r = e.mem_read(A + t & 65535);
-  }, B[132] = function () {
+  }, R[132] = function () {
     ce(A >>> 8 & 255);
-  }, B[133] = function () {
+  }, R[133] = function () {
     ce(A & 255);
-  }, B[134] = function () {
+  }, R[134] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     ce(e.mem_read(A + t & 65535));
-  }, B[140] = function () {
+  }, R[140] = function () {
     ie(A >>> 8 & 255);
-  }, B[141] = function () {
+  }, R[141] = function () {
     ie(A & 255);
-  }, B[142] = function () {
+  }, R[142] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     ie(e.mem_read(A + t & 65535));
-  }, B[148] = function () {
+  }, R[148] = function () {
     M(A >>> 8 & 255);
-  }, B[149] = function () {
+  }, R[149] = function () {
     M(A & 255);
-  }, B[150] = function () {
+  }, R[150] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     M(e.mem_read(A + t & 65535));
-  }, B[156] = function () {
+  }, R[156] = function () {
     D(A >>> 8 & 255);
-  }, B[157] = function () {
+  }, R[157] = function () {
     D(A & 255);
-  }, B[158] = function () {
+  }, R[158] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     D(e.mem_read(A + t & 65535));
-  }, B[164] = function () {
+  }, R[164] = function () {
     fe(A >>> 8 & 255);
-  }, B[165] = function () {
+  }, R[165] = function () {
     fe(A & 255);
-  }, B[166] = function () {
+  }, R[166] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     fe(e.mem_read(A + t & 65535));
-  }, B[172] = function () {
+  }, R[172] = function () {
     ne(A >>> 8 & 255);
-  }, B[173] = function () {
+  }, R[173] = function () {
     ne(A & 255);
-  }, B[174] = function () {
+  }, R[174] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     ne(e.mem_read(A + t & 65535));
-  }, B[180] = function () {
+  }, R[180] = function () {
     T(A >>> 8 & 255);
-  }, B[181] = function () {
+  }, R[181] = function () {
     T(A & 255);
-  }, B[182] = function () {
+  }, R[182] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     T(e.mem_read(A + t & 65535));
-  }, B[188] = function () {
+  }, R[188] = function () {
     F(A >>> 8 & 255);
-  }, B[189] = function () {
+  }, R[189] = function () {
     F(A & 255);
-  }, B[190] = function () {
+  }, R[190] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     F(e.mem_read(A + t & 65535));
-  }, B[203] = function () {
+  }, R[203] = function () {
     i = i + 1 & 65535;
     var t = O(e.mem_read(i));
     i = i + 1 & 65535;
@@ -5179,16 +5179,16 @@ function xn(h) {
       b < 128 ? (f.N = 0, f.H = 1, f.Z = e.mem_read(A + t & 65535) & 1 << Oe ? 0 : 1, f.P = f.Z, f.S = Oe === 7 && !f.Z ? 1 : 0) : b < 192 ? (P = e.mem_read(A + t & 65535) & ~(1 << Oe) & 255, e.mem_write(A + t & 65535, P)) : (P = e.mem_read(A + t & 65535) | 1 << Oe, e.mem_write(A + t & 65535, P));
     }
     P !== void 0 && ((b & 7) == 0 ? c = P : (b & 7) == 1 ? l = P : (b & 7) == 2 ? x = P : (b & 7) == 3 ? d = P : (b & 7) == 4 ? u = P : (b & 7) == 5 ? a = P : (b & 7) == 7 && (r = P)), te += g[b] + 8;
-  }, B[225] = function () {
+  }, R[225] = function () {
     A = be();
-  }, B[227] = function () {
+  }, R[227] = function () {
     var t = A;
     A = e.mem_read(z), A |= e.mem_read(z + 1 & 65535) << 8, e.mem_write(z, t & 255), e.mem_write(z + 1 & 65535, t >>> 8 & 255);
-  }, B[229] = function () {
+  }, R[229] = function () {
     we(A);
-  }, B[233] = function () {
+  }, R[233] = function () {
     i = A - 1 & 65535;
-  }, B[249] = function () {
+  }, R[249] = function () {
     z = A;
   };
   var o = [4, 10, 7, 6, 4, 4, 7, 4, 4, 11, 7, 6, 4, 4, 7, 4, 8, 10, 7, 6, 4, 4, 7, 4, 12, 11, 7, 6, 4, 4, 7, 4, 7, 10, 16, 6, 4, 4, 7, 4, 7, 11, 16, 6, 4, 4, 7, 4, 7, 10, 13, 6, 11, 11, 10, 4, 7, 11, 13, 6, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 7, 7, 7, 7, 7, 7, 4, 7, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 4, 4, 4, 4, 4, 4, 7, 4, 5, 10, 10, 10, 10, 11, 7, 11, 5, 10, 10, 0, 10, 17, 7, 11, 5, 10, 10, 11, 10, 11, 7, 11, 5, 4, 10, 11, 10, 0, 7, 11, 5, 10, 10, 19, 10, 11, 7, 11, 5, 4, 10, 4, 10, 0, 7, 11, 5, 10, 10, 4, 10, 11, 7, 11, 5, 6, 10, 4, 10, 0, 7, 11],
@@ -5376,7 +5376,7 @@ function X0(h) {
   return e.fill(1, 0, h), e;
 }
 var ln = function ln() {
-    for (var h = 128, e = 64, r = 32, c = 16, l = 15, x = 128, d = 64, u = 32, a = 16, V = 8, L = 4, p = 2, I = 1, k = 28, G = 114, oe = 15, A = 31, R = 511, E = 131071, U = 0, z = 1, i = 2, f = 3, ge = 0, Fe = 4, W = 8, Be = 12, _ = 127, C = 1789790, Ze = 1787520, te = new Uint8Array([1]), q = new Uint8Array([0, 1]), We = new Uint8Array([1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0]), K = new Uint8Array([0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1]), H = new Uint8Array([0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0]), Ae = new Uint8Array([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), ue = new Uint8Array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), O = new Uint8Array(1 << 14), Xe = 0; Xe < O.length; Xe++) {
+    for (var h = 128, e = 64, r = 32, c = 16, l = 15, x = 128, d = 64, u = 32, a = 16, V = 8, L = 4, p = 2, I = 1, k = 28, G = 114, ue = 15, A = 31, B = 511, E = 131071, U = 0, z = 1, i = 2, f = 3, ge = 0, Fe = 4, W = 8, Re = 12, _ = 127, C = 1789790, Ze = 1787520, te = new Uint8Array([1]), q = new Uint8Array([0, 1]), We = new Uint8Array([1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0]), K = new Uint8Array([0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1]), H = new Uint8Array([0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0]), Ae = new Uint8Array([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), oe = new Uint8Array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), O = new Uint8Array(1 << 14), Xe = 0; Xe < O.length; Xe++) {
       O[Xe] = Math.random() > .5 ? 1 : 0;
     }
     var Ve = I0(O, K),
@@ -5508,11 +5508,11 @@ var ln = function ln() {
       V,
       L = 4;
     function p(G) {
-      var oe = G.outputBuffer.length,
+      var ue = G.outputBuffer.length,
         A = G.outputBuffer.getChannelData(0),
-        R = this.module;
-      if (R || (R = G.srcElement.module), !!R) if (R.callback) {
-        R.callback(A);
+        B = this.module;
+      if (B || (B = G.srcElement.module), !!B) if (B.callback) {
+        B.callback(A);
         return;
       } else {
         for (var E = u[a], U = 0; U < A.length; U++) {
@@ -5543,8 +5543,10 @@ var ln = function ln() {
         console.log("no web audio context");
         return;
       }
-      var oe = new G();
-      e.context = oe, e.sr = e.context.sampleRate, e.bufferlen = 2048, e.filterNode = e.context.createBiquadFilter(), e.filterNode.type = "lowshelf", e.filterNode.frequency.value = 100, e.filterNode.gain.value = -6, typeof e.context.createScriptProcessor == "function" ? e.mixerNode = e.context.createScriptProcessor(e.bufferlen, 1, 1) : e.mixerNode = e.context.createJavaScriptNode(e.bufferlen, 1, 1), e.mixerNode.module = e, e.mixerNode.onaudioprocess = p, e.compressorNode = e.context.createDynamicsCompressor(), e.mixerNode.connect(e.filterNode), e.filterNode.connect(e.compressorNode), e.compressorNode.connect(e.context.destination);
+      var ue = new G({
+        sampleRate: 44100
+      });
+      console.log("sampleRate", ue.sampleRate), e.context = ue, e.sr = e.context.sampleRate, e.bufferlen = 2048, e.filterNode = e.context.createBiquadFilter(), e.filterNode.type = "lowshelf", e.filterNode.frequency.value = 100, e.filterNode.gain.value = -6, typeof e.context.createScriptProcessor == "function" ? e.mixerNode = e.context.createScriptProcessor(e.bufferlen, 1, 1) : e.mixerNode = e.context.createJavaScriptNode(e.bufferlen, 1, 1), e.mixerNode.module = e, e.mixerNode.onaudioprocess = p, e.compressorNode = e.context.createDynamicsCompressor(), e.mixerNode.connect(e.filterNode), e.filterNode.connect(e.compressorNode), e.compressorNode.connect(e.context.destination);
     }
     this.start = function () {
       if (this.context) {
@@ -5554,8 +5556,8 @@ var ln = function ln() {
       if (k(), !!this.context) {
         c = this.sr * 1 / h, r = 0, l = 0, d = 0, u = [], a = 1, V = 0;
         for (var G = 0; G < L; G++) {
-          var oe = new ArrayBuffer(e.bufferlen * 4);
-          u[G] = new Float32Array(oe);
+          var ue = new ArrayBuffer(e.bufferlen * 4);
+          u[G] = new Float32Array(ue);
         }
         x = u[0];
       }
@@ -5566,11 +5568,11 @@ var ln = function ln() {
     }, this.addSingleSample = function (G) {
       if (!!x && (x[d++] = G, d >= x.length)) {
         d = 0, u[V] = x;
-        var oe = (V + 1) % u.length;
-        oe == a ? V = Math.floor(a + L / 2) % u.length : V = oe, x = u[V];
+        var ue = (V + 1) % u.length;
+        ue == a ? V = Math.floor(a + L / 2) % u.length : V = ue, x = u[V];
       }
-    }, this.feedSample = function (G, oe) {
-      if (l += G * oe, r += c * oe, r >= 1) {
+    }, this.feedSample = function (G, ue) {
+      if (l += G * ue, r += c * ue, r >= 1) {
         for (l /= r; r >= 1;) {
           this.addSingleSample(l * c), r -= 1;
         }
@@ -6417,9 +6419,9 @@ function Z0() {
     I = 4,
     k = 8,
     G = 16,
-    oe = 32,
+    ue = 32,
     A = 64,
-    R = 128,
+    B = 128,
     E = 65534,
     U = 65532,
     z = 65530,
@@ -6428,7 +6430,7 @@ function Z0() {
     ge = 65524,
     Fe = 65522,
     W = 0,
-    Be,
+    Re,
     _,
     C,
     Ze = [6, 0, 0, 6, 6, 0, 6, 6, 6, 6, 6, 0, 6, 6, 3, 6, 0, 0, 2, 4, 0, 0, 5, 9, 0, 2, 3, 0, 3, 2, 8, 6, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 0, 5, 3, 6, 9, 11, 0, 19, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2, 2, 0, 2, 2, 0, 0, 2, 2, 0, 2, 2, 2, 2, 2, 0, 2, 2, 0, 2, 6, 0, 0, 6, 6, 0, 6, 6, 6, 6, 6, 0, 6, 6, 3, 6, 7, 0, 0, 7, 7, 0, 7, 7, 7, 7, 7, 0, 7, 7, 4, 7, 2, 2, 2, 4, 2, 2, 2, 0, 2, 2, 2, 2, 4, 7, 3, 0, 4, 4, 4, 6, 4, 4, 4, 4, 4, 4, 4, 4, 6, 7, 5, 5, 4, 4, 4, 6, 4, 4, 4, 4, 4, 4, 4, 4, 6, 7, 5, 5, 5, 5, 5, 7, 5, 5, 5, 5, 5, 5, 5, 5, 7, 8, 6, 6, 2, 2, 2, 4, 2, 2, 2, 0, 2, 2, 2, 2, 3, 0, 3, 0, 4, 4, 4, 6, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 4, 4, 4, 6, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 7, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6],
@@ -6446,7 +6448,7 @@ function Z0() {
     Ae = function Ae(o) {
       e = o >> 8 & 255, r = o & 255;
     },
-    ue = function ue(o) {
+    oe = function oe(o) {
       _(--d, o & 255);
     },
     O = function O(o) {
@@ -6472,7 +6474,7 @@ function Z0() {
     },
     we = function we(o) {
       var n = 0;
-      o & 128 && (O(u), n += 2), o & 64 && (O(x), n += 2), o & 32 && (O(l), n += 2), o & 16 && (O(c), n += 2), o & 8 && (ue(V), n++), o & 4 && (ue(r), n++), o & 2 && (ue(e), n++), o & 1 && (ue(a), n++), W += n;
+      o & 128 && (O(u), n += 2), o & 64 && (O(x), n += 2), o & 32 && (O(l), n += 2), o & 16 && (O(c), n += 2), o & 8 && (oe(V), n++), o & 4 && (oe(r), n++), o & 2 && (oe(e), n++), o & 1 && (oe(a), n++), W += n;
     },
     be = function be(o) {
       var n = 0;
@@ -6688,7 +6690,7 @@ function Z0() {
     },
     re = function re(o, n) {
       var g = o + n;
-      return a &= ~(oe | L | I | p | k), a |= q[g & 255], g & 256 && (a |= L), We(o, n, g), (g ^ o ^ n) & 16 && (a |= oe), g & 255;
+      return a &= ~(ue | L | I | p | k), a |= q[g & 255], g & 256 && (a |= L), We(o, n, g), (g ^ o ^ n) & 16 && (a |= ue), g & 255;
     },
     ve = function ve(o, n) {
       var g = o + n;
@@ -6696,7 +6698,7 @@ function Z0() {
     },
     $ = function $(o, n) {
       var g = o + n + (a & L);
-      return a &= ~(oe | L | I | p | k), a |= q[g & 255], g & 256 && (a |= L), We(o, n, g), (g ^ o ^ n) & 16 && (a |= oe), g & 255;
+      return a &= ~(ue | L | I | p | k), a |= q[g & 255], g & 256 && (a |= L), We(o, n, g), (g ^ o ^ n) & 16 && (a |= ue), g & 255;
     },
     le = function le(o, n) {
       var g = o - n - (a & L);
@@ -6719,7 +6721,7 @@ function Z0() {
     Pe = function Pe(o) {
       return a &= ~(I | L | k), o & 1 && (a |= L), o = o & 128 | o >> 1, a |= q[o], o;
     },
-    Re = function Re(o) {
+    Be = function Be(o) {
       var n = o;
       return a &= ~(I | L | k | p), o & 128 && (a |= L), o <<= 1, a |= q[o], (o ^ n) & 128 && (a |= p), o;
     },
@@ -6770,7 +6772,7 @@ function Z0() {
           n = X(), _(n, Pe(C(n)));
           break;
         case 8:
-          n = X(), _(n, Re(C(n)));
+          n = X(), _(n, Be(C(n)));
           break;
         case 9:
           n = X(), _(n, Ye(C(n)));
@@ -6900,7 +6902,7 @@ function Z0() {
           c += r;
           break;
         case 59:
-          a = Ue(), a & R && (W += 9, e = Ue(), r = Ue(), V = Ue(), c = De(), l = De(), x = De()), u = De();
+          a = Ue(), a & B && (W += 9, e = Ue(), r = Ue(), V = Ue(), c = De(), l = De(), x = De()), u = De();
           break;
         case 60:
           a &= M();
@@ -6909,7 +6911,7 @@ function Z0() {
           n = e * r, n === 0 ? a |= I : a &= ~I, n & 128 ? a |= L : a &= ~L, Ae(n);
           break;
         case 63:
-          a |= R, O(u), O(x), O(l), O(c), ue(V), ue(r), ue(e), ue(a), a |= G | A, u = F(z);
+          a |= B, O(u), O(x), O(l), O(c), oe(V), oe(r), oe(e), oe(a), a |= G | A, u = F(z);
           break;
         case 64:
           e = ee(e);
@@ -6927,7 +6929,7 @@ function Z0() {
           e = Pe(e);
           break;
         case 72:
-          e = Re(e);
+          e = Be(e);
           break;
         case 73:
           e = Ye(e);
@@ -6960,7 +6962,7 @@ function Z0() {
           r = Pe(r);
           break;
         case 88:
-          r = Re(r);
+          r = Be(r);
           break;
         case 89:
           r = Ye(r);
@@ -6993,7 +6995,7 @@ function Z0() {
           n = T(), _(n, Pe(C(n)));
           break;
         case 104:
-          n = T(), _(n, Re(C(n)));
+          n = T(), _(n, Be(C(n)));
           break;
         case 105:
           n = T(), _(n, Ye(C(n)));
@@ -7029,7 +7031,7 @@ function Z0() {
           n = D(), _(n, Pe(C(n)));
           break;
         case 120:
-          n = D(), _(n, Re(C(n)));
+          n = D(), _(n, Be(C(n)));
           break;
         case 121:
           n = D(), _(n, Ye(C(n)));
@@ -7466,7 +7468,7 @@ function Z0() {
               n = ie(D()), (a & k ^ (a & p) << 2 || a & I) && (u += n);
               break;
             case 63:
-              a |= R, O(u), O(x), O(l), O(c), ue(V), ue(r), ue(e), ue(a), a |= G | A, u = F(ge);
+              a |= B, O(u), O(x), O(l), O(c), oe(V), oe(r), oe(e), oe(a), a |= G | A, u = F(ge);
               break;
             case 131:
               Z(H(), D());
@@ -7539,7 +7541,7 @@ function Z0() {
         case 17:
           switch (t = M(), W += te[t], t) {
             case 63:
-              a |= R, O(u), O(x), O(l), O(c), ue(V), ue(r), ue(e), ue(a), a |= G | A, u = F(Fe);
+              a |= B, O(u), O(x), O(l), O(c), oe(V), oe(r), oe(e), oe(a), a |= G | A, u = F(Fe);
               break;
             case 131:
               Z(x, D());
@@ -7625,7 +7627,7 @@ function Z0() {
       254: [4, 7, "LDS"],
       255: [4, 7, "STS"]
     },
-    B = function B(o, n, g, s, t, b) {
+    R = function R(o, n, g, s, t, b) {
       var P = function P(m0, J0) {
           for (var k0 = m0.toString(16); k0.length < J0;) {
             k0 = "0" + k0;
@@ -7861,13 +7863,13 @@ function Z0() {
       u = o.PC, d = o.SP, x = o.U, e = o.A, r = o.B, c = o.X, l = o.Y, V = o.DP, a = o.CC, W = o.T;
     },
     firq: function firq() {
-      a & A || (O(u), a &= ~R, ue(a), a |= G | A, u = F(f), W += 9);
+      a & A || (O(u), a &= ~B, oe(a), a |= G | A, u = F(f), W += 9);
     },
     interrupt: function interrupt() {
-      a & G || (O(u), O(x), O(l), O(c), ue(V), ue(r), ue(e), a |= R, ue(a), a |= G, u = F(i), W += 18);
+      a & G || (O(u), O(x), O(l), O(c), oe(V), oe(r), oe(e), a |= B, oe(a), a |= G, u = F(i), W += 18);
     },
     nmi: function nmi() {
-      O(u), O(x), O(l), O(c), ue(V), ue(r), ue(e), a |= R, ue(a), a |= G | A, u = F(U), W += 18;
+      O(u), O(x), O(l), O(c), oe(V), oe(r), oe(e), a |= B, oe(a), a |= G | A, u = F(U), W += 18;
     },
     set: function set(o, n) {
       switch (o.toUpperCase()) {
@@ -7904,7 +7906,7 @@ function Z0() {
       }
       return o;
     },
-    disasm: B,
+    disasm: R,
     isStable: function isStable() {
       return !0;
     }
@@ -7939,9 +7941,9 @@ var st = function st() {
       I = 0,
       k = 0,
       G = -1,
-      oe = -1,
+      ue = -1,
       A,
-      R = 0,
+      B = 0,
       E = 0,
       U = 0,
       z = !1,
@@ -7950,7 +7952,7 @@ var st = function st() {
       ge = 0;
     var Fe = 65530,
       W = 65532,
-      Be = 65534,
+      Re = 65534,
       _ = 0,
       C = 1,
       Ze = 7,
@@ -7959,13 +7961,13 @@ var st = function st() {
       We = 0;
     this.debug = !1, this.trace = !1;
     var K = function K() {
-        oe = e.read(c), A = t[oe], G = 0, c++;
+        ue = e.read(c), A = t[ue], G = 0, c++;
       },
       H = K,
       Ae = function Ae() {
         e.read(c);
       },
-      ue = function ue() {
+      oe = function oe() {
         f = e.read(c), c++;
       },
       O = function O() {
@@ -8018,19 +8020,19 @@ var st = function st() {
         i = i & 65280 | m & 255;
       },
       ie = function ie() {
-        R = e.read(c), c++;
+        B = e.read(c), c++;
       },
       M = function M() {
-        R = e.read(E);
+        B = e.read(E);
       },
       D = function D() {
-        R = e.read(U);
+        B = e.read(U);
       },
       F = function F() {
-        e.write(E, R);
+        e.write(E, B);
       },
       fe = function fe() {
-        e.write(U, R);
+        e.write(U, B);
       },
       T = function T() {
         var m = c & 255,
@@ -8085,7 +8087,7 @@ var st = function st() {
           m(), H();
         }];
       },
-      Re = function Re(m) {
+      Be = function Be(m) {
         return [K, O, Xe, M, function () {
           m(), H();
         }];
@@ -8188,7 +8190,7 @@ var st = function st() {
           m(), F();
         }, H];
       },
-      B = function B(m) {
+      R = function R(m) {
         var v = m === _ ? be : ye;
         return function (j) {
           return [K, De, D, function () {
@@ -8228,7 +8230,7 @@ var st = function st() {
       },
       s = new Array(256),
       t = new Array(256);
-    s[0] = "BRK", t[0] = Qt(), s[1] = "ORA", t[1] = x0(Ye), s[2] = "uKIL", t[2] = Ge(), s[3] = "uSLO", t[3] = S0(n), s[4] = "uNOP", t[4] = Ce(Pe), s[5] = "ORA", t[5] = x0(Pe), s[6] = "ASL", t[6] = w0(S), s[7] = "uSLO", t[7] = S0(S), s[8] = "PHP", t[8] = jt(), s[9] = "ORA", t[9] = x0(se), s[10] = "ASL", t[10] = b(), s[11] = "uANC", t[11] = ot(se), s[12] = "uNOP", t[12] = Ce(Re), s[13] = "ORA", t[13] = x0(Re), s[14] = "ASL", t[14] = w0(y), s[15] = "uSLO", t[15] = S0(y), s[16] = "BPL", t[16] = u0(Ze, 0), s[17] = "ORA", t[17] = x0(Me), s[18] = "uKIL", t[18] = Ge(), s[19] = "uSLO", t[19] = S0(g), s[20] = "uNOP", t[20] = Ce(de(_)), s[21] = "ORA", t[21] = x0(de(_)), s[22] = "ASL", t[22] = w0(B(_)), s[23] = "uSLO", t[23] = S0(B(_)), s[24] = "CLC", t[24] = P(), s[25] = "ORA", t[25] = x0(xe(C)), s[26] = "uNOP", t[26] = Ce(ee), s[27] = "uSLO", t[27] = S0(o(C)), s[28] = "uNOP", t[28] = Ce(xe(_)), s[29] = "ORA", t[29] = x0(xe(_)), s[30] = "ASL", t[30] = w0(o(_)), s[31] = "uSLO", t[31] = S0(o(_)), s[32] = "JSR", t[32] = Gt(), s[33] = "AND", t[33] = i0(Ye), s[34] = "uKIL", t[34] = Ge(), s[35] = "uRLA", t[35] = A0(n), s[36] = "BIT", t[36] = ut(Pe), s[37] = "AND", t[37] = i0(Pe), s[38] = "ROL", t[38] = F0(S), s[39] = "uRLA", t[39] = A0(S), s[40] = "PLP", t[40] = Jt(), s[41] = "AND", t[41] = i0(se), s[42] = "ROL", t[42] = l0(), s[43] = "uANC", t[43] = ot(se), s[44] = "BIT", t[44] = ut(Re), s[45] = "AND", t[45] = i0(Re), s[46] = "ROL", t[46] = F0(y), s[47] = "uRLA", t[47] = A0(y), s[48] = "BMI", t[48] = u0(Ze, 1), s[49] = "AND", t[49] = i0(Me), s[50] = "uKIL", t[50] = Ge(), s[51] = "uRLA", t[51] = A0(g), s[52] = "uNOP", t[52] = Ce(de(_)), s[53] = "AND", t[53] = i0(de(_)), s[54] = "ROL", t[54] = F0(B(_)), s[55] = "uRLA", t[55] = A0(B(_)), s[56] = "SEC", t[56] = p0(), s[57] = "AND", t[57] = i0(xe(C)), s[58] = "uNOP", t[58] = Ce(ee), s[59] = "uRLA", t[59] = A0(o(C)), s[60] = "uNOP", t[60] = Ce(xe(_)), s[61] = "AND", t[61] = i0(xe(_)), s[62] = "ROL", t[62] = F0(o(_)), s[63] = "uRLA", t[63] = A0(o(_)), s[64] = "RTI", t[64] = tn(), s[65] = "EOR", t[65] = c0(Ye), s[66] = "uKIL", t[66] = Ge(), s[67] = "uSRE", t[67] = C0(n), s[68] = "uNOP", t[68] = Ce(Pe), s[69] = "EOR", t[69] = c0(Pe), s[70] = "LSR", t[70] = T0(S), s[71] = "uSRE", t[71] = C0(S), s[72] = "PHA", t[72] = Kt(), s[73] = "EOR", t[73] = c0(se), s[74] = "LSR", t[74] = j0(), s[75] = "uASR", t[75] = Ht(se), s[76] = "JMP", t[76] = rn(), s[77] = "EOR", t[77] = c0(Re), s[78] = "LSR", t[78] = T0(y), s[79] = "uSRE", t[79] = C0(y), s[80] = "BVC", t[80] = u0(te, 0), s[81] = "EOR", t[81] = c0(Me), s[82] = "uKIL", t[82] = Ge(), s[83] = "uSRE", t[83] = C0(g), s[84] = "uNOP", t[84] = Ce(de(_)), s[85] = "EOR", t[85] = c0(de(_)), s[86] = "LSR", t[86] = T0(B(_)), s[87] = "uSRE", t[87] = C0(B(_)), s[88] = "CLI", t[88] = Je(), s[89] = "EOR", t[89] = c0(xe(C)), s[90] = "uNOP", t[90] = Ce(ee), s[91] = "uSRE", t[91] = C0(o(C)), s[92] = "uNOP", t[92] = Ce(xe(_)), s[93] = "EOR", t[93] = c0(xe(_)), s[94] = "LSR", t[94] = T0(o(_)), s[95] = "uSRE", t[95] = C0(o(_)), s[96] = "RTS", t[96] = nn(), s[97] = "ADC", t[97] = a0(Ye), s[98] = "uKIL", t[98] = Ge(), s[99] = "uRRA", t[99] = v0(n), s[100] = "uNOP", t[100] = Ce(Pe), s[101] = "ADC", t[101] = a0(Pe), s[102] = "ROR", t[102] = U0(S), s[103] = "uRRA", t[103] = v0(S), s[104] = "PLA", t[104] = $t(), s[105] = "ADC", t[105] = a0(se), s[106] = "ROR", t[106] = Te(), s[107] = "uARR", t[107] = Ut(se), s[108] = "JMP", t[108] = an(), s[109] = "ADC", t[109] = a0(Re), s[110] = "ROR", t[110] = U0(y), s[111] = "uRRA", t[111] = v0(y), s[112] = "BVS", t[112] = u0(te, 1), s[113] = "ADC", t[113] = a0(Me), s[114] = "uKIL", t[114] = Ge(), s[115] = "uRRA", t[115] = v0(g), s[116] = "uNOP", t[116] = Ce(de(_)), s[117] = "ADC", t[117] = a0(de(_)), s[118] = "ROR", t[118] = U0(B(_)), s[119] = "uRRA", t[119] = v0(B(_)), s[120] = "SEI", t[120] = O0(), s[121] = "ADC", t[121] = a0(xe(C)), s[122] = "uNOP", t[122] = Ce(ee), s[123] = "uRRA", t[123] = v0(o(C)), s[124] = "uNOP", t[124] = Ce(xe(_)), s[125] = "ADC", t[125] = a0(xe(_)), s[126] = "ROR", t[126] = U0(o(_)), s[127] = "uRRA", t[127] = v0(o(_)), s[128] = "uNOP", t[128] = Ce(se), s[129] = "STA", t[129] = b0(X), s[130] = "uNOP", t[130] = Ce(se), s[131] = "uSAX", t[131] = E0(X), s[132] = "STY", t[132] = et(ke), s[133] = "STA", t[133] = b0(ke), s[134] = "STX", t[134] = q0(ke), s[135] = "uSAX", t[135] = E0(ke), s[136] = "DEY", t[136] = qe(), s[137] = "uNOP", t[137] = Ce(se), s[138] = "TXA", t[138] = J0(), s[139] = "uANE", t[139] = Ft(se), s[140] = "STY", t[140] = et(Ke), s[141] = "STA", t[141] = b0(Ke), s[142] = "STX", t[142] = q0(Ke), s[143] = "uSAX", t[143] = E0(Ke), s[144] = "BCC", t[144] = u0(We, 0), s[145] = "STA", t[145] = b0(e0), s[146] = "uKIL", t[146] = Ge(), s[147] = "uSHA", t[147] = lt(e0), s[148] = "STY", t[148] = et(Qe(_)), s[149] = "STA", t[149] = b0(Qe(_)), s[150] = "STX", t[150] = q0(Qe(C)), s[151] = "uSAX", t[151] = E0(Qe(C)), s[152] = "TYA", t[152] = Tt(), s[153] = "STA", t[153] = b0(je(C)), s[154] = "TXS", t[154] = k0(), s[155] = "uSHS", t[155] = Zt(je(C)), s[156] = "uSHY", t[156] = zt(je(_)), s[157] = "STA", t[157] = b0(je(_)), s[158] = "uSHX", t[158] = Vt(je(C)), s[159] = "uSHA", t[159] = lt(je(C)), s[160] = "LDY", t[160] = y0(se), s[161] = "LDA", t[161] = s0(Ye), s[162] = "LDX", t[162] = R0(se), s[163] = "uLAX", t[163] = D0(Ye), s[164] = "LDY", t[164] = y0(Pe), s[165] = "LDA", t[165] = s0(Pe), s[166] = "LDX", t[166] = R0(Pe), s[167] = "uLAX", t[167] = D0(Pe), s[168] = "TAY", t[168] = P0(), s[169] = "LDA", t[169] = s0(se), s[170] = "TAX", t[170] = _0(), s[171] = "uLXA", t[171] = Yt(se), s[172] = "LDY", t[172] = y0(Re), s[173] = "LDA", t[173] = s0(Re), s[174] = "LDX", t[174] = R0(Re), s[175] = "uLAX", t[175] = D0(Re), s[176] = "BCS", t[176] = u0(We, 1), s[177] = "LDA", t[177] = s0(Me), s[178] = "uKIL", t[178] = Ge(), s[179] = "uLAX", t[179] = D0(Me), s[180] = "LDY", t[180] = y0(de(_)), s[181] = "LDA", t[181] = s0(de(_)), s[182] = "LDX", t[182] = R0(de(C)), s[183] = "uLAX", t[183] = D0(de(C)), s[184] = "CLV", t[184] = Oe(), s[185] = "LDA", t[185] = s0(xe(C)), s[186] = "TSX", t[186] = m0(), s[187] = "uLAS", t[187] = Xt(xe(C)), s[188] = "LDY", t[188] = y0(xe(_)), s[189] = "LDA", t[189] = s0(xe(_)), s[190] = "LDX", t[190] = R0(xe(C)), s[191] = "uLAX", t[191] = D0(xe(C)), s[192] = "CPY", t[192] = Q0(se), s[193] = "CMP", t[193] = f0(Ye), s[194] = "uNOP", t[194] = Ce(se), s[195] = "uDCP", t[195] = d0(n), s[196] = "CPY", t[196] = Q0(Pe), s[197] = "CMP", t[197] = f0(Pe), s[198] = "DEC", t[198] = N0(S), s[199] = "uDCP", t[199] = d0(S), s[200] = "INY", t[200] = $e(), s[201] = "CMP", t[201] = f0(se), s[202] = "DEX", t[202] = r0(), s[203] = "uSBX", t[203] = Wt(se), s[204] = "CPY", t[204] = Q0(Re), s[205] = "CMP", t[205] = f0(Re), s[206] = "DEC", t[206] = N0(y), s[207] = "uDCP", t[207] = d0(y), s[208] = "BNE", t[208] = u0(q, 0), s[209] = "CMP", t[209] = f0(Me), s[210] = "uKIL", t[210] = Ge(), s[211] = "uDCP", t[211] = d0(g), s[212] = "uNOP", t[212] = Ce(de(_)), s[213] = "CMP", t[213] = f0(de(_)), s[214] = "DEC", t[214] = N0(B(_)), s[215] = "uDCP", t[215] = d0(B(_)), s[216] = "CLD", t[216] = Le(), s[217] = "CMP", t[217] = f0(xe(C)), s[218] = "uNOP", t[218] = Ce(ee), s[219] = "uDCP", t[219] = d0(o(C)), s[220] = "uNOP", t[220] = Ce(xe(_)), s[221] = "CMP", t[221] = f0(xe(_)), s[222] = "DEC", t[222] = N0(o(_)), s[223] = "uDCP", t[223] = d0(o(_)), s[224] = "CPX", t[224] = G0(se), s[225] = "SBC", t[225] = n0(Ye), s[226] = "uNOP", t[226] = Ce(se), s[227] = "uISB", t[227] = h0(n), s[228] = "CPX", t[228] = G0(Pe), s[229] = "SBC", t[229] = n0(Pe), s[230] = "INC", t[230] = M0(S), s[231] = "uISB", t[231] = h0(S), s[232] = "INX", t[232] = t0(), s[233] = "SBC", t[233] = n0(se), s[234] = "NOP", t[234] = J(), s[235] = "SBC", t[235] = n0(se), s[236] = "CPX", t[236] = G0(Re), s[237] = "SBC", t[237] = n0(Re), s[238] = "INC", t[238] = M0(y), s[239] = "uISB", t[239] = h0(y), s[240] = "BEQ", t[240] = u0(q, 1), s[241] = "SBC", t[241] = n0(Me), s[242] = "uKIL", t[242] = Ge(), s[243] = "uISB", t[243] = h0(g), s[244] = "uNOP", t[244] = Ce(de(_)), s[245] = "SBC", t[245] = n0(de(_)), s[246] = "INC", t[246] = M0(B(_)), s[247] = "uISB", t[247] = h0(B(_)), s[248] = "SED", t[248] = $0(), s[249] = "SBC", t[249] = n0(xe(C)), s[250] = "uNOP", t[250] = Ce(ee), s[251] = "uISB", t[251] = h0(o(C)), s[252] = "uNOP", t[252] = Ce(xe(_)), s[253] = "SBC", t[253] = n0(xe(_)), s[254] = "INC", t[254] = M0(o(_)), s[255] = "uISB", t[255] = h0(o(_));
+    s[0] = "BRK", t[0] = Qt(), s[1] = "ORA", t[1] = x0(Ye), s[2] = "uKIL", t[2] = Ge(), s[3] = "uSLO", t[3] = S0(n), s[4] = "uNOP", t[4] = Ce(Pe), s[5] = "ORA", t[5] = x0(Pe), s[6] = "ASL", t[6] = w0(S), s[7] = "uSLO", t[7] = S0(S), s[8] = "PHP", t[8] = jt(), s[9] = "ORA", t[9] = x0(se), s[10] = "ASL", t[10] = b(), s[11] = "uANC", t[11] = ot(se), s[12] = "uNOP", t[12] = Ce(Be), s[13] = "ORA", t[13] = x0(Be), s[14] = "ASL", t[14] = w0(y), s[15] = "uSLO", t[15] = S0(y), s[16] = "BPL", t[16] = u0(Ze, 0), s[17] = "ORA", t[17] = x0(Me), s[18] = "uKIL", t[18] = Ge(), s[19] = "uSLO", t[19] = S0(g), s[20] = "uNOP", t[20] = Ce(de(_)), s[21] = "ORA", t[21] = x0(de(_)), s[22] = "ASL", t[22] = w0(R(_)), s[23] = "uSLO", t[23] = S0(R(_)), s[24] = "CLC", t[24] = P(), s[25] = "ORA", t[25] = x0(xe(C)), s[26] = "uNOP", t[26] = Ce(ee), s[27] = "uSLO", t[27] = S0(o(C)), s[28] = "uNOP", t[28] = Ce(xe(_)), s[29] = "ORA", t[29] = x0(xe(_)), s[30] = "ASL", t[30] = w0(o(_)), s[31] = "uSLO", t[31] = S0(o(_)), s[32] = "JSR", t[32] = Gt(), s[33] = "AND", t[33] = i0(Ye), s[34] = "uKIL", t[34] = Ge(), s[35] = "uRLA", t[35] = A0(n), s[36] = "BIT", t[36] = ut(Pe), s[37] = "AND", t[37] = i0(Pe), s[38] = "ROL", t[38] = F0(S), s[39] = "uRLA", t[39] = A0(S), s[40] = "PLP", t[40] = Jt(), s[41] = "AND", t[41] = i0(se), s[42] = "ROL", t[42] = l0(), s[43] = "uANC", t[43] = ot(se), s[44] = "BIT", t[44] = ut(Be), s[45] = "AND", t[45] = i0(Be), s[46] = "ROL", t[46] = F0(y), s[47] = "uRLA", t[47] = A0(y), s[48] = "BMI", t[48] = u0(Ze, 1), s[49] = "AND", t[49] = i0(Me), s[50] = "uKIL", t[50] = Ge(), s[51] = "uRLA", t[51] = A0(g), s[52] = "uNOP", t[52] = Ce(de(_)), s[53] = "AND", t[53] = i0(de(_)), s[54] = "ROL", t[54] = F0(R(_)), s[55] = "uRLA", t[55] = A0(R(_)), s[56] = "SEC", t[56] = p0(), s[57] = "AND", t[57] = i0(xe(C)), s[58] = "uNOP", t[58] = Ce(ee), s[59] = "uRLA", t[59] = A0(o(C)), s[60] = "uNOP", t[60] = Ce(xe(_)), s[61] = "AND", t[61] = i0(xe(_)), s[62] = "ROL", t[62] = F0(o(_)), s[63] = "uRLA", t[63] = A0(o(_)), s[64] = "RTI", t[64] = tn(), s[65] = "EOR", t[65] = c0(Ye), s[66] = "uKIL", t[66] = Ge(), s[67] = "uSRE", t[67] = C0(n), s[68] = "uNOP", t[68] = Ce(Pe), s[69] = "EOR", t[69] = c0(Pe), s[70] = "LSR", t[70] = T0(S), s[71] = "uSRE", t[71] = C0(S), s[72] = "PHA", t[72] = Kt(), s[73] = "EOR", t[73] = c0(se), s[74] = "LSR", t[74] = j0(), s[75] = "uASR", t[75] = Ht(se), s[76] = "JMP", t[76] = rn(), s[77] = "EOR", t[77] = c0(Be), s[78] = "LSR", t[78] = T0(y), s[79] = "uSRE", t[79] = C0(y), s[80] = "BVC", t[80] = u0(te, 0), s[81] = "EOR", t[81] = c0(Me), s[82] = "uKIL", t[82] = Ge(), s[83] = "uSRE", t[83] = C0(g), s[84] = "uNOP", t[84] = Ce(de(_)), s[85] = "EOR", t[85] = c0(de(_)), s[86] = "LSR", t[86] = T0(R(_)), s[87] = "uSRE", t[87] = C0(R(_)), s[88] = "CLI", t[88] = Je(), s[89] = "EOR", t[89] = c0(xe(C)), s[90] = "uNOP", t[90] = Ce(ee), s[91] = "uSRE", t[91] = C0(o(C)), s[92] = "uNOP", t[92] = Ce(xe(_)), s[93] = "EOR", t[93] = c0(xe(_)), s[94] = "LSR", t[94] = T0(o(_)), s[95] = "uSRE", t[95] = C0(o(_)), s[96] = "RTS", t[96] = nn(), s[97] = "ADC", t[97] = a0(Ye), s[98] = "uKIL", t[98] = Ge(), s[99] = "uRRA", t[99] = v0(n), s[100] = "uNOP", t[100] = Ce(Pe), s[101] = "ADC", t[101] = a0(Pe), s[102] = "ROR", t[102] = U0(S), s[103] = "uRRA", t[103] = v0(S), s[104] = "PLA", t[104] = $t(), s[105] = "ADC", t[105] = a0(se), s[106] = "ROR", t[106] = Te(), s[107] = "uARR", t[107] = Ut(se), s[108] = "JMP", t[108] = an(), s[109] = "ADC", t[109] = a0(Be), s[110] = "ROR", t[110] = U0(y), s[111] = "uRRA", t[111] = v0(y), s[112] = "BVS", t[112] = u0(te, 1), s[113] = "ADC", t[113] = a0(Me), s[114] = "uKIL", t[114] = Ge(), s[115] = "uRRA", t[115] = v0(g), s[116] = "uNOP", t[116] = Ce(de(_)), s[117] = "ADC", t[117] = a0(de(_)), s[118] = "ROR", t[118] = U0(R(_)), s[119] = "uRRA", t[119] = v0(R(_)), s[120] = "SEI", t[120] = O0(), s[121] = "ADC", t[121] = a0(xe(C)), s[122] = "uNOP", t[122] = Ce(ee), s[123] = "uRRA", t[123] = v0(o(C)), s[124] = "uNOP", t[124] = Ce(xe(_)), s[125] = "ADC", t[125] = a0(xe(_)), s[126] = "ROR", t[126] = U0(o(_)), s[127] = "uRRA", t[127] = v0(o(_)), s[128] = "uNOP", t[128] = Ce(se), s[129] = "STA", t[129] = b0(X), s[130] = "uNOP", t[130] = Ce(se), s[131] = "uSAX", t[131] = E0(X), s[132] = "STY", t[132] = et(ke), s[133] = "STA", t[133] = b0(ke), s[134] = "STX", t[134] = q0(ke), s[135] = "uSAX", t[135] = E0(ke), s[136] = "DEY", t[136] = qe(), s[137] = "uNOP", t[137] = Ce(se), s[138] = "TXA", t[138] = J0(), s[139] = "uANE", t[139] = Ft(se), s[140] = "STY", t[140] = et(Ke), s[141] = "STA", t[141] = b0(Ke), s[142] = "STX", t[142] = q0(Ke), s[143] = "uSAX", t[143] = E0(Ke), s[144] = "BCC", t[144] = u0(We, 0), s[145] = "STA", t[145] = b0(e0), s[146] = "uKIL", t[146] = Ge(), s[147] = "uSHA", t[147] = lt(e0), s[148] = "STY", t[148] = et(Qe(_)), s[149] = "STA", t[149] = b0(Qe(_)), s[150] = "STX", t[150] = q0(Qe(C)), s[151] = "uSAX", t[151] = E0(Qe(C)), s[152] = "TYA", t[152] = Tt(), s[153] = "STA", t[153] = b0(je(C)), s[154] = "TXS", t[154] = k0(), s[155] = "uSHS", t[155] = Zt(je(C)), s[156] = "uSHY", t[156] = zt(je(_)), s[157] = "STA", t[157] = b0(je(_)), s[158] = "uSHX", t[158] = Vt(je(C)), s[159] = "uSHA", t[159] = lt(je(C)), s[160] = "LDY", t[160] = y0(se), s[161] = "LDA", t[161] = s0(Ye), s[162] = "LDX", t[162] = B0(se), s[163] = "uLAX", t[163] = D0(Ye), s[164] = "LDY", t[164] = y0(Pe), s[165] = "LDA", t[165] = s0(Pe), s[166] = "LDX", t[166] = B0(Pe), s[167] = "uLAX", t[167] = D0(Pe), s[168] = "TAY", t[168] = P0(), s[169] = "LDA", t[169] = s0(se), s[170] = "TAX", t[170] = _0(), s[171] = "uLXA", t[171] = Yt(se), s[172] = "LDY", t[172] = y0(Be), s[173] = "LDA", t[173] = s0(Be), s[174] = "LDX", t[174] = B0(Be), s[175] = "uLAX", t[175] = D0(Be), s[176] = "BCS", t[176] = u0(We, 1), s[177] = "LDA", t[177] = s0(Me), s[178] = "uKIL", t[178] = Ge(), s[179] = "uLAX", t[179] = D0(Me), s[180] = "LDY", t[180] = y0(de(_)), s[181] = "LDA", t[181] = s0(de(_)), s[182] = "LDX", t[182] = B0(de(C)), s[183] = "uLAX", t[183] = D0(de(C)), s[184] = "CLV", t[184] = Oe(), s[185] = "LDA", t[185] = s0(xe(C)), s[186] = "TSX", t[186] = m0(), s[187] = "uLAS", t[187] = Xt(xe(C)), s[188] = "LDY", t[188] = y0(xe(_)), s[189] = "LDA", t[189] = s0(xe(_)), s[190] = "LDX", t[190] = B0(xe(C)), s[191] = "uLAX", t[191] = D0(xe(C)), s[192] = "CPY", t[192] = Q0(se), s[193] = "CMP", t[193] = f0(Ye), s[194] = "uNOP", t[194] = Ce(se), s[195] = "uDCP", t[195] = d0(n), s[196] = "CPY", t[196] = Q0(Pe), s[197] = "CMP", t[197] = f0(Pe), s[198] = "DEC", t[198] = N0(S), s[199] = "uDCP", t[199] = d0(S), s[200] = "INY", t[200] = $e(), s[201] = "CMP", t[201] = f0(se), s[202] = "DEX", t[202] = r0(), s[203] = "uSBX", t[203] = Wt(se), s[204] = "CPY", t[204] = Q0(Be), s[205] = "CMP", t[205] = f0(Be), s[206] = "DEC", t[206] = N0(y), s[207] = "uDCP", t[207] = d0(y), s[208] = "BNE", t[208] = u0(q, 0), s[209] = "CMP", t[209] = f0(Me), s[210] = "uKIL", t[210] = Ge(), s[211] = "uDCP", t[211] = d0(g), s[212] = "uNOP", t[212] = Ce(de(_)), s[213] = "CMP", t[213] = f0(de(_)), s[214] = "DEC", t[214] = N0(R(_)), s[215] = "uDCP", t[215] = d0(R(_)), s[216] = "CLD", t[216] = Le(), s[217] = "CMP", t[217] = f0(xe(C)), s[218] = "uNOP", t[218] = Ce(ee), s[219] = "uDCP", t[219] = d0(o(C)), s[220] = "uNOP", t[220] = Ce(xe(_)), s[221] = "CMP", t[221] = f0(xe(_)), s[222] = "DEC", t[222] = N0(o(_)), s[223] = "uDCP", t[223] = d0(o(_)), s[224] = "CPX", t[224] = G0(se), s[225] = "SBC", t[225] = n0(Ye), s[226] = "uNOP", t[226] = Ce(se), s[227] = "uISB", t[227] = h0(n), s[228] = "CPX", t[228] = G0(Pe), s[229] = "SBC", t[229] = n0(Pe), s[230] = "INC", t[230] = M0(S), s[231] = "uISB", t[231] = h0(S), s[232] = "INX", t[232] = t0(), s[233] = "SBC", t[233] = n0(se), s[234] = "NOP", t[234] = J(), s[235] = "SBC", t[235] = n0(se), s[236] = "CPX", t[236] = G0(Be), s[237] = "SBC", t[237] = n0(Be), s[238] = "INC", t[238] = M0(y), s[239] = "uISB", t[239] = h0(y), s[240] = "BEQ", t[240] = u0(q, 1), s[241] = "SBC", t[241] = n0(Me), s[242] = "uKIL", t[242] = Ge(), s[243] = "uISB", t[243] = h0(g), s[244] = "uNOP", t[244] = Ce(de(_)), s[245] = "SBC", t[245] = n0(de(_)), s[246] = "INC", t[246] = M0(R(_)), s[247] = "uISB", t[247] = h0(R(_)), s[248] = "SED", t[248] = $0(), s[249] = "SBC", t[249] = n0(xe(C)), s[250] = "uNOP", t[250] = Ce(ee), s[251] = "uISB", t[251] = h0(o(C)), s[252] = "uNOP", t[252] = Ce(xe(_)), s[253] = "SBC", t[253] = n0(xe(_)), s[254] = "INC", t[254] = M0(o(_)), s[255] = "uISB", t[255] = h0(o(_));
     function b() {
       return ee(function () {
         Y(x > 127), x = x << 1 & 255, w(x), N(x);
@@ -8354,86 +8356,86 @@ var st = function st() {
     function a0(m) {
       return m(function () {
         if (L) {
-          var v = R,
+          var v = B,
             j = (x & 15) + (v & 15) + k;
           j > 9 && (j += 6);
           var Se = (x >> 4) + (v >> 4) + (j > 15 ? 1 : 0) << 4;
           w(x + v + k & 255), N(Se), _e((x ^ Se) & ~(x ^ v) & 128), Se > 159 && (Se += 96), Y(Se > 255), x = (Se | j & 15) & 255;
         } else {
-          var he = x + R + k;
-          Y(he > 255), _e((x ^ he) & (R ^ he) & 128), x = he & 255, w(x), N(x);
+          var he = x + B + k;
+          Y(he > 255), _e((x ^ he) & (B ^ he) & 128), x = he & 255, w(x), N(x);
         }
       });
     }
     function i0(m) {
       return m(function () {
-        x &= R, w(x), N(x);
+        x &= B, w(x), N(x);
       });
     }
     function ut(m) {
       return m(function () {
-        var v = R;
+        var v = B;
         w(x & v), _e(v & 64), N(v);
       });
     }
     function f0(m) {
       return m(function () {
-        var v = x - R & 255;
-        Y(x >= R), w(v), N(v);
+        var v = x - B & 255;
+        Y(x >= B), w(v), N(v);
       });
     }
     function G0(m) {
       return m(function () {
-        var v = d - R & 255;
-        Y(d >= R), w(v), N(v);
+        var v = d - B & 255;
+        Y(d >= B), w(v), N(v);
       });
     }
     function Q0(m) {
       return m(function () {
-        var v = u - R & 255;
-        Y(u >= R), w(v), N(v);
+        var v = u - B & 255;
+        Y(u >= B), w(v), N(v);
       });
     }
     function c0(m) {
       return m(function () {
-        x ^= R, w(x), N(x);
+        x ^= B, w(x), N(x);
       });
     }
     function s0(m) {
       return m(function () {
-        x = R, w(x), N(x);
+        x = B, w(x), N(x);
       });
     }
-    function R0(m) {
+    function B0(m) {
       return m(function () {
-        d = R, w(d), N(d);
+        d = B, w(d), N(d);
       });
     }
     function y0(m) {
       return m(function () {
-        u = R, w(u), N(u);
+        u = B, w(u), N(u);
       });
     }
     function x0(m) {
       return m(function () {
-        x |= R, w(x), N(x);
+        x |= B, w(x), N(x);
       });
     }
     function n0(m) {
       return m(function () {
         if (L) {
-          var v = R,
+          var v = B,
             j = (x & 15) - (v & 15) - (1 - k),
             Se = (x >> 4) - (v >> 4) - (j < 0 ? 1 : 0);
           j < 0 && (j -= 6), Se < 0 && (Se -= 6);
           var he = x - v - (1 - k);
           Y(~he & 256), _e((x ^ v) & (x ^ he) & 128), w(he & 255), N(he), x = (Se << 4 | j & 15) & 255;
-        } else v = ~R & 255, he = x + v + k, Y(he > 255), _e((x ^ he) & (v ^ he) & 128), x = he & 255, w(x), N(x);
+        } else v = ~B & 255, he = x + v + k, Y(he > 255), _e((x ^ he) & (v ^ he) & 128), x = he & 255, w(x), N(x);
       });
     }
     function ot(m) {
       return m(function () {
-        Z("ANC"), x &= R, w(x), a = k = x & 128 ? 1 : 0;
+        Z("ANC"), x &= B, w(x), a = k = x & 128 ? 1 : 0;
       });
     }
     function Ft(m) {
@@ -8444,7 +8446,7 @@ var st = function st() {
     function Ut(m) {
       return m(function () {
         Z("ARR");
-        var v = x & R,
+        var v = x & B,
           j = k ? 128 : 0;
         v = v >>> 1 | j, x = v, w(v), N(v);
         var Se = x & 96;
@@ -8454,28 +8456,28 @@ var st = function st() {
     function Ht(m) {
       return m(function () {
         Z("ASR");
-        var v = x & R;
+        var v = x & B;
         k = v & 1, v = v >>> 1, x = v, w(v), a = 0;
       });
     }
     function Xt(m) {
       return m(function () {
         Z("LAS");
-        var v = l & R;
+        var v = l & B;
         x = v, d = v, l = v, w(v), N(v);
       });
     }
     function D0(m) {
       return m(function () {
         Z("LAX");
-        var v = R;
+        var v = B;
         x = v, d = v, w(v), N(v);
       });
     }
     function Yt(m) {
       return m(function () {
         Z("LXA");
-        var v = x & R;
+        var v = x & B;
         x = v, d = v, w(v), N(v);
       });
     }
@@ -8483,147 +8485,147 @@ var st = function st() {
       return m(function () {
         Z("SBX");
         var v = x & d,
-          j = R,
+          j = B,
           Se = v - j & 255;
         d = Se, Y(v >= j), w(Se), N(Se);
       });
     }
     function b0(m) {
       return m(function () {
-        R = x;
+        B = x;
       });
     }
     function q0(m) {
       return m(function () {
-        R = d;
+        B = d;
       });
     }
     function et(m) {
       return m(function () {
-        R = u;
+        B = u;
       });
     }
     function E0(m) {
       return m(function () {
-        Z("SAX"), R = x & d;
+        Z("SAX"), B = x & d;
       });
     }
     function lt(m) {
       return m(function () {
-        Z("SHA"), R = x & d & (U >>> 8) + 1 & 255;
+        Z("SHA"), B = x & d & (U >>> 8) + 1 & 255;
       });
     }
     function Zt(m) {
       return m(function () {
         Z("SHS");
         var v = x & d;
-        l = v, R = v & (U >>> 8) + 1 & 255;
+        l = v, B = v & (U >>> 8) + 1 & 255;
       });
     }
     function Vt(m) {
       return m(function () {
-        Z("SHX"), R = d & (U >>> 8) + 1 & 255;
+        Z("SHX"), B = d & (U >>> 8) + 1 & 255;
       });
     }
     function zt(m) {
       return m(function () {
-        Z("SHY"), R = u & (U >>> 8) + 1 & 255;
+        Z("SHY"), B = u & (U >>> 8) + 1 & 255;
       });
     }
     function w0(m) {
       return m(function () {
-        Y(R > 127);
-        var v = R << 1 & 255;
-        R = v, w(v), N(v);
+        Y(B > 127);
+        var v = B << 1 & 255;
+        B = v, w(v), N(v);
       });
     }
     function N0(m) {
       return m(function () {
-        var v = R - 1 & 255;
-        R = v, w(v), N(v);
+        var v = B - 1 & 255;
+        B = v, w(v), N(v);
       });
     }
     function M0(m) {
       return m(function () {
-        var v = R + 1 & 255;
-        R = v, w(v), N(v);
+        var v = B + 1 & 255;
+        B = v, w(v), N(v);
       });
     }
     function T0(m) {
       return m(function () {
-        k = R & 1, R >>>= 1, w(R), a = 0;
+        k = B & 1, B >>>= 1, w(B), a = 0;
       });
     }
     function F0(m) {
       return m(function () {
-        var v = R > 127,
-          j = (R << 1 | k) & 255;
-        R = j, Y(v), w(j), N(j);
+        var v = B > 127,
+          j = (B << 1 | k) & 255;
+        B = j, Y(v), w(j), N(j);
       });
     }
     function U0(m) {
       return m(function () {
-        var v = R & 1,
-          j = R >>> 1 | k << 7;
-        R = j, Y(v), w(j), N(j);
+        var v = B & 1,
+          j = B >>> 1 | k << 7;
+        B = j, Y(v), w(j), N(j);
       });
     }
     function d0(m) {
       return m(function () {
         Z("DCP");
-        var v = R - 1 & 255;
-        R = v, v = x - v, Y(v >= 0), w(v), N(v);
+        var v = B - 1 & 255;
+        B = v, v = x - v, Y(v >= 0), w(v), N(v);
       });
     }
     function h0(m) {
       return m(function () {
-        if (Z("ISB"), R = R + 1 & 255, L) {
-          var v = R,
+        if (Z("ISB"), B = B + 1 & 255, L) {
+          var v = B,
             j = (x & 15) - (v & 15) - (1 - k),
             Se = (x >> 4) - (v >> 4) - (j < 0 ? 1 : 0);
           j < 0 && (j -= 6), Se < 0 && (Se -= 6);
           var he = x - v - (1 - k);
           Y(~he & 256), _e((x ^ v) & (x ^ he) & 128), w(he & 255), N(he), x = (Se << 4 | j & 15) & 255;
-        } else v = ~R & 255, he = x + v + k, Y(he > 255), _e((x ^ he) & (v ^ he) & 128), x = he & 255, w(x), N(x);
+        } else v = ~B & 255, he = x + v + k, Y(he > 255), _e((x ^ he) & (v ^ he) & 128), x = he & 255, w(x), N(x);
       });
     }
     function A0(m) {
       return m(function () {
         Z("RLA");
-        var v = R,
+        var v = B,
           j = k;
-        Y(v & 128), v = (v << 1 | j) & 255, R = v, x &= v, w(v), N(v);
+        Y(v & 128), v = (v << 1 | j) & 255, B = v, x &= v, w(v), N(v);
       });
     }
     function v0(m) {
       return m(function () {
         Z("RRA");
-        var v = R,
+        var v = B,
           j = k ? 128 : 0;
-        if (Y(v & 1), v = v >>> 1 | j, R = v, L) {
-          var Se = R,
+        if (Y(v & 1), v = v >>> 1 | j, B = v, L) {
+          var Se = B,
             he = (x & 15) + (Se & 15) + k;
           he > 9 && (he += 6);
-          var B0 = (x >> 4) + (Se >> 4) + (he > 15 ? 1 : 0) << 4;
-          w(x + Se + k & 255), N(B0), _e((x ^ B0) & ~(x ^ Se) & 128), B0 > 159 && (B0 += 96), Y(B0 > 255), x = (B0 | he & 15) & 255;
+          var R0 = (x >> 4) + (Se >> 4) + (he > 15 ? 1 : 0) << 4;
+          w(x + Se + k & 255), N(R0), _e((x ^ R0) & ~(x ^ Se) & 128), R0 > 159 && (R0 += 96), Y(R0 > 255), x = (R0 | he & 15) & 255;
         } else {
-          var H0 = x + R + k;
-          Y(H0 > 255), _e((x ^ H0) & (R ^ H0) & 128), x = H0 & 255, w(x), N(x);
+          var H0 = x + B + k;
+          Y(H0 > 255), _e((x ^ H0) & (B ^ H0) & 128), x = H0 & 255, w(x), N(x);
         }
       });
     }
     function S0(m) {
       return m(function () {
         Z("SLO");
-        var v = R;
-        Y(v & 128), v = v << 1 & 255, R = v, v = x | v, x = v, w(v), N(v);
+        var v = B;
+        Y(v & 128), v = v << 1 & 255, B = v, v = x | v, x = v, w(v), N(v);
       });
     }
     function C0(m) {
       return m(function () {
         Z("SRE");
-        var v = R;
-        Y(v & 1), v = v >>> 1, R = v, v = (x ^ v) & 255, x = v, w(v), N(v);
+        var v = B;
+        Y(v & 1), v = v >>> 1, B = v, v = (x ^ v) & 255, x = v, w(v), N(v);
       });
     }
     function Kt() {
@@ -8657,37 +8659,37 @@ var st = function st() {
     }
     function Qt() {
       return [K, ie, function () {
-        h.debug && h.breakpoint("BRK " + R), $(c >>> 8 & 255);
+        h.debug && h.breakpoint("BRK " + B), $(c >>> 8 & 255);
       }, function () {
         $(c & 255);
       }, function () {
         $(le());
       }, function () {
-        E = e.read(Be);
+        E = e.read(Re);
       }, function () {
-        E |= e.read(Be + 1) << 8;
+        E |= e.read(Re + 1) << 8;
       }, function () {
         c = E, p = 1, H();
       }];
     }
     function qt() {
       return [K, ie, function () {
-        h.debug && h.breakpoint("IRQ " + R), $(c >>> 8 & 255);
+        h.debug && h.breakpoint("IRQ " + B), $(c >>> 8 & 255);
       }, function () {
         $(c & 255);
       }, function () {
         $(le() & ~16);
       }, function () {
-        E = e.read(Be);
+        E = e.read(Re);
       }, function () {
-        E |= e.read(Be + 1) << 8;
+        E |= e.read(Re + 1) << 8;
       }, function () {
         c = E, H();
       }];
     }
     function en() {
       return [K, ie, function () {
-        h.debug && h.breakpoint("NMI " + R), $(c >>> 8 & 255);
+        h.debug && h.breakpoint("NMI " + B), $(c >>> 8 & 255);
       }, function () {
         $(c & 255);
       }, function () {
@@ -8742,7 +8744,7 @@ var st = function st() {
         return k === v;
       } : j = function j() {
         return V === v;
-      }, [K, ue, function () {
+      }, [K, oe, function () {
         j() ? (Ae(), T()) : H();
       }, function () {
         ge ? (Ae(), ne()) : H();
@@ -8762,9 +8764,9 @@ var st = function st() {
         Z: I,
         C: k,
         T: G,
-        o: oe,
+        o: ue,
         R: r ? 1 : 0,
-        d: R,
+        d: B,
         AD: E,
         BA: U,
         BC: z ? 1 : 0,
@@ -8773,9 +8775,9 @@ var st = function st() {
         boa: ge
       };
     }, this.loadState = function (m) {
-      c = m.PC + 1 & 65535, x = m.A, d = m.X, u = m.Y, l = m.SP, a = m.N, V = m.V, L = m.D, p = m.I, I = m.Z, k = m.C, G = m.T, oe = m.o, r = !!m.R, R = m.d, E = m.AD, U = m.BA, z = !!m.BC, i = m.IA, f = m.bo, ge = m.boa, A = oe < 0 ? [K] : t[oe];
+      c = m.PC + 1 & 65535, x = m.A, d = m.X, u = m.Y, l = m.SP, a = m.N, V = m.V, L = m.D, p = m.I, I = m.Z, k = m.C, G = m.T, ue = m.o, r = !!m.R, B = m.d, E = m.AD, U = m.BA, z = !!m.BC, i = m.IA, f = m.bo, ge = m.boa, A = ue < 0 ? [K] : t[ue];
     }, this.toString = function () {
-      return "CPU  PC: " + c.toString(16) + "  op: " + oe.toString() + "  T: " + G + "  data: " + R + "\n A: " + x.toString(16) + "  X: " + d.toString(16) + "  Y: " + u.toString(16) + "  SP: " + l.toString(16) + "     N" + a + "  V" + V + "  D" + L + "  I" + p + "  Z" + I + "  C" + k + "  ";
+      return "CPU  PC: " + c.toString(16) + "  op: " + ue.toString() + "  T: " + G + "  data: " + B + "\n A: " + x.toString(16) + "  X: " + d.toString(16) + "  Y: " + u.toString(16) + "  SP: " + l.toString(16) + "     N" + a + "  V" + V + "  D" + L + "  I" + p + "  Z" + I + "  C" + k + "  ";
     }, this.breakpoint = function (m) {
       if (this.trace) var v = "CPU Breakpoint!  " + (m ? "(" + m + ")" : "") + "\n\n" + this.toString();
     };
@@ -8802,7 +8804,7 @@ var st = function st() {
     }, this.getT = function () {
       return G;
     }, this.isHalted = function () {
-      return s[oe] == "uKIL";
+      return s[ue] == "uKIL";
     }, this.isPCStable = function () {
       return G == 0;
     };
@@ -8928,13 +8930,13 @@ var Dt = /*#__PURE__*/function () {
     }]);
     return Dt;
   }(),
-  Bt = /*#__PURE__*/function () {
-    function Bt() {
-      _classCallCheck(this, Bt);
+  Rt = /*#__PURE__*/function () {
+    function Rt() {
+      _classCallCheck(this, Rt);
       this.recorder = null;
       this.internalFiles = {};
     }
-    _createClass(Bt, [{
+    _createClass(Rt, [{
       key: "setRecorder",
       value: function setRecorder(e) {
         this.recorder = e;
@@ -8967,10 +8969,10 @@ var Dt = /*#__PURE__*/function () {
         return this.internalFiles[e] = r, !0;
       }
     }]);
-    return Bt;
+    return Rt;
   }(),
-  V0 = /*#__PURE__*/function (_Bt) {
-    _inherits(V0, _Bt);
+  V0 = /*#__PURE__*/function (_Rt) {
+    _inherits(V0, _Rt);
     var _super3 = _createSuper(V0);
     function V0() {
       var _this8;
@@ -9132,8 +9134,8 @@ var Dt = /*#__PURE__*/function () {
       }
     }]);
     return V0;
-  }(Bt);
-exports.w = Bt;
+  }(Rt);
+exports.w = Rt;
 function vn(h, e) {
   if (!!h.debugSymbols) {
     var r = h.debugSymbols.symbolmap,
@@ -9150,7 +9152,7 @@ function vn(h, e) {
     }
   }
 }
-function Rt(h) {
+function Bt(h) {
   return h.endsWith(".pla") ? "plasm" : h.endsWith(".c") || h.endsWith(".h") ? "cc65" : h.endsWith(".s") || h.endsWith(".ca65") ? "ca65" : h.endsWith(".dasm") ? "dasm" : h.endsWith(".acme") ? "acme" : h.endsWith(".wiz") ? "wiz" : h.endsWith(".ecs") ? "ecs" : "dasm";
 }
 var Sn = /*#__PURE__*/function (_V) {
@@ -9161,7 +9163,7 @@ var Sn = /*#__PURE__*/function (_V) {
     _classCallCheck(this, Sn);
     _this12 = _super4.apply(this, arguments);
     _this12.debugPCDelta = -1;
-    _this12.getToolForFilename = Rt;
+    _this12.getToolForFilename = Bt;
     return _this12;
   }
   _createClass(Sn, [{
@@ -9452,10 +9454,10 @@ function kn(h) {
 function Dn(h) {
   return typeof h.connectProbe == "function";
 }
-function Bn(h) {
+function Rn(h) {
   return typeof h.loadBIOS == "function";
 }
-function Rn(h) {
+function Bn(h) {
   return typeof h.connectSerialIO == "function";
 }
 var K0 = /*#__PURE__*/function (_V3) {
@@ -9549,9 +9551,9 @@ var K0 = /*#__PURE__*/function (_V3) {
                     return e.connectProbe(_this16.probeRecorder), _this16.probeRecorder;
                   }, this.stopProbing = function () {
                     e.connectProbe(null);
-                  }), Bn(e) && (this.loadBIOS = function (x, d) {
+                  }), Rn(e) && (this.loadBIOS = function (x, d) {
                     e.loadBIOS(d, x);
-                  }), Rn(e) && (this.serialIOInterface == null ? this.serialVisualizer = new Mt(this.mainElement, e) : e.connectSerialIO(this.serialIOInterface));
+                  }), Bn(e) && (this.serialIOInterface == null ? this.serialVisualizer = new Mt(this.mainElement, e) : e.connectSerialIO(this.serialIOInterface));
                 case 9:
                 case "end":
                   return _context5.stop();
@@ -9644,7 +9646,7 @@ var K0 = /*#__PURE__*/function (_V3) {
       _classCallCheck(this, yn);
       _this18 = _super8.apply(this, arguments);
       _this18.getOpcodeMetadata = It;
-      _this18.getToolForFilename = Rt;
+      _this18.getToolForFilename = Bt;
       return _this18;
     }
     _createClass(yn, [{
@@ -9996,7 +9998,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 var v = (0, _chunk5XVCUSSZ.e)((0, _chunkZOBESMA.b)());
 Promise.resolve().then(function () {
-  return _interopRequireWildcard(require("./msx-R44PHCEP.js"));
+  return _interopRequireWildcard(require("./msx-CUOFKEWF.js"));
 });
 var s,
   t,
@@ -10208,12 +10210,12 @@ function E(e) {
 }
 self === top && (document.body.style.backgroundColor = "#555");
 
-},{"./chunk-5XVCUSSZ.js":1,"./chunk-QEB57REV.js":3,"./chunk-ZOBESMA4.js":5,"./msx-R44PHCEP.js":7}],7:[function(require,module,exports){
+},{"./chunk-5XVCUSSZ.js":1,"./chunk-QEB57REV.js":3,"./chunk-ZOBESMA4.js":5,"./msx-CUOFKEWF.js":7}],7:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-var _chunkGL2HKYEL = require("./chunk-GL2HKYEL.js");
-var _chunkY2G6ABZC = require("./chunk-Y2G6ABZC.js");
+var _chunkKFRMFCAD = require("./chunk-KFRMFCAD.js");
+var _chunkXND2JHFM = require("./chunk-XND2JHFM.js");
 var _chunkQEB57REV = require("./chunk-QEB57REV.js");
 require("./chunk-5XVCUSSZ.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10256,7 +10258,7 @@ var w = 16,
           B = _this.slots[g];
         B && B.write(s, e);
       };
-      _this.init(_assertThisInitialized(_this), _this.newIOBus(), new _chunkY2G6ABZC.e(new _chunkY2G6ABZC.d())), _this.bios = new _chunkQEB57REV.k().decode((0, _chunkQEB57REV.l)(atob(l))), _this.bios[3541] = 0, _this.bios[3542] = 0, _this.bios[3543] = 0, _this.slots = [{
+      _this.init(_assertThisInitialized(_this), _this.newIOBus(), new _chunkXND2JHFM.e(new _chunkXND2JHFM.d())), _this.bios = new _chunkQEB57REV.k().decode((0, _chunkQEB57REV.l)(atob(l))), _this.bios[3541] = 0, _this.bios[3542] = 0, _this.bios[3543] = 0, _this.slots = [{
         read: function read(s) {
           return _this.bios[s] | 0;
         },
@@ -10389,7 +10391,7 @@ var w = 16,
       }
     }]);
     return i;
-  }(_chunkGL2HKYEL.c),
+  }(_chunkKFRMFCAD.c),
   l = "\n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\nweHV5TsMNno7CjZZzYXz0eVRtuHJCNnz/eXx3eXhV6dRMtVRIUcO/N3l8VF3hygHywDLAT0g+SFn\nJOXbqPWhsNnDjPNRK9FRtgjZyfPlb1EqPqvGVQXyeyRXOwNuZ0c+wAcHBfKLJF8vT3qjR32n8tYk\nDw/mA+XFOwUipSSjR3rmwGfbqG/mwLRaBAxiobBPMv//fdOoIcX8euYDhW98zgBneXfB4duoobDT\nqOHJVw8PX+bAb9uoT+Y/tdOoe+YDb3wmAxgCKSnWQDD6fC9nUX5fpLVRPm9506hRPE8GAH0hxfwJ\nd8l6Dw/mwEdRs7BRM1EbOwcaUVlzydOoXhgD06hzetOoUQQIzZjzCPGT4cnd6QBaBQ87MC4yOTsk\n8mNiaW9zLnNmLm5ldA0KQ2hhcmFjdGVyIHNldDogVVMNCkluUQdydXB0IGZyZXF1ZW5jeTogNjBI\neg0KS2V5Ym9hcmQgdHlwZVHmkyQASW5pdCBST00gaW4gc2xvdDogAENhbm5vdCBleGVjdXRlIGEg\nQkFTSUNRXS5RKUVSUk9SOgBNRU1PUlkgTk9UIEZPVU5ELgBDQUxMRURRCk4gRVhJU1RJTkdR8i4A\nU1RBQ0sgUbIuADsCb05vIGNhcnRyaWRnZSBmb3VuZC5RT1RoaXMgdmVyc2lvbiBvZiA7BfxjYW4N\nCm9ubHkgc3RRLjsIM3NRLlBsZWFzZSByZVHUeW91ciBNU1gNCihlbXVsYXRvcikgd2l0aCBhOwgw\nDQppbnNlcnRlZC4AMDEyMzQ1Njc4OS09XFtdOwAnYCwuLwBhYmNkZWZnaGlqa2xtbm9wcXJzdHV2\nd3h5eikhQCMkJV4mKihfK3x7fToifjw+PwBBQkNERUZHSElKS0xNTk9QUQBSU1RVVldYWVoACayr\nuu+99PvsBxfxHgENBgW78/IdAMQRvMfNFBUT3MbdyAsbwtvMGNISwBrPHBkPCgD9/AAA9QAACB/w\nFgIOBAP3rq/2AP4A+sHO1BDW38reyQzTw9fLqdEAxdXQ+ar465/Zv5uY4OHnh+7pAO3at7nlhqan\nAISXjYuMlIGxoZGzteakoqODkwCJloKViIqghditnr6cnQAA4jvCpOjqtrjkjwCoAI5RBQCZmrAA\nkrK0AKUA41FHO4QvkwgbCQAIAA0gDAAAHR4fHCorLzspMywuAIBwgQCCAYT1h1oEAnWTH5Mfkx+T\nH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+THpMdkwPF5cEbe7IoAwkY+FoDGKu1Mc2fCT4g\n0y560y970y/x4clST01CQVM7H6CTH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5MekxyTBj46kz+T\nP5Ms5fUhSTpaBRvgWgMMYHN0YXRlbWVudHMgYXJlIG5vdCBpbXBsUYtlZCB5ZXQ7P7uTH5Mfkx+T\nH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mf\nkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+T\nH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TBc2O\nWgpBt5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+T\nH5Mfkx+TH5Mfkx+TH5MfWh5ixDsfeZMfkx+TH5Mfkx+TH5Mfkx+TH5MeAOX1ISJ9WgQ60XVua25v\nd25AN0QxNwA5fd0hiQHNPxrJ3SGFAcM/Wh9abpMeOw71H347DfVFMTQ735aTH5Mfkx6TC1oNaeX/\nzW8AWgdqSmIAKiL5AQADPgDNVgABAALNRwABA5+TogQAk6FaA3T+B5MBR1oDcC9aA3AqyfNRIyok\nUS4ECesBMAMhvIDNXFHJAQnrKgQACQEAA1FKyfM7Bxvsg1HJEQABGVEWPvFReyL5AYQACeshHIcG\nCsXl1QEYAFEd4QEgUQzhUQUJwRDpO01I/viTYh9/k6E/OwwSHzsIAvj+OwYDfx9aA1VJ/vz48B8/\nUS2TBVFIAFG+kwk7CS8Afz8f+Pw7CwdaBVbh/v4fP387CUH+/DsGUPiTAfCTAR+TAT+TAVFIUdBR\nzTsGKzsGCDsHJMffUQ3wOwi3WgZcfjsDen8//pMB/Pz8fDsGKAAA/PgfP3/+UWnwf1Ef/FFk8FFr\nfz8fH/D++PAff3z8+D8/f5MDOwZMOwYIOwaYUUdRUFEzkwN8PDw8x5MBHx7j45Pi/Pjw8FFhOwb/\nOwUfkwT+fzstdn87B7hRKz9+kwFRHvAfHz9+OwJEOwK0k+J4eHh8UVg/OyRI/vz8+DsDTzsD0loI\nXXOTBTsEcfD4/HyTAlEDf39/PzsKcFGIOwJkOwwv/B+TgfA7Itw8jx9/OwJ0n5MBfH5+f+M+Pz87\nJE7wPlEiOwZEOyI6OyLQ/vjxPPA7Isc7JS1RkHz8+DsiaAA/OyJV8Pj8k8L4UT07TRc7TTU7BwY7\nBFz++D87S3k7SYo7CEB/OwovOwYCOyJQ/viTofA7Tac7AvaTCztz8gkJk2KQkAmTgZNhkxFRGFGX\nOwUnkAGTARmTAZGRkTsHHFEEkQmRGRlRVJMGOwYIOwcZOwUoOwU4kTsGeDsHETsFIFEUUbg7QoCT\nCvGTAVFQCFEfCJCQkJPjk2GBUSyBUS07BhyTgQ8Pk8EPkwFRaJPiH1FBUVZRUTsJSJPiURFRhFEu\nD/FRRlHBUWtRnzsFI/GAkJCAkICAOwJwCAkICAkYGRkYGRgYGVGVOwdEAQE7B1k7B1w7Bho7BnQ7\nJBg7CA6TBFHOOwSsOwJzCAg7Al8ICfHx4ZNB4VE0Hh+T4lFIHx5RBJPlUVCT4VF4k+JRkPHhk+E7\nBWA7BkoPDx47BXA7BEgICAhaA1/Qk+GTA1ETGJMC4ZMBDpMBUWST4x4eUQhRTuHhHpNikwFRhDsG\nAVEnUUZRJx47BTCT4lHSUZ4BAVE5OwsQUU07BnQYGBiBkwIICDtEClELUQZRDTsHkFGak+GTAxiT\npBiBUW47BrRRq1EsUVU7CEA7AliT4pMCOwffUYWAURCEOwUhBDtmAwSTDVHOAICAgYKDhIWGhzsj\nJpMJiImKi4yNjo+QjJMK45GSkwCUjJWWUUSXOwkQ5JiZmoyMm5ydnp+goaKjnaSlpp2TAYzkp6ip\njIyqq4yMrK2ur4yMsLGys7OztIzktbVRLraTYbe4ubqMjLu8vb6+v8CM5MHCw4yMxMXFxsfIycrL\nzM3OxcXFz9CM5NHC0jsLgZMF5NPU1dbX2Nna2zsHC1YwLjI55IDc3d7C3+Dh4pMM5VoGXW2TH5Mf\nkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+T\nH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mf\nkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+T\nH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+TH5Mfkx+THpMc/w==\n";
 var h = [{
     id: "helloworld.asm",
@@ -10510,7 +10512,7 @@ var h = [{
       }
     }]);
     return k;
-  }(_chunkY2G6ABZC.J),
+  }(_chunkXND2JHFM.J),
   C = /*#__PURE__*/function (_k) {
     _inherits(C, _k);
     var _super3 = _createSuper(C);
@@ -10529,4 +10531,4 @@ var h = [{
 _chunkQEB57REV.J.msx = k;
 _chunkQEB57REV.J["msx-libcv"] = C;
 
-},{"./chunk-5XVCUSSZ.js":1,"./chunk-GL2HKYEL.js":2,"./chunk-QEB57REV.js":3,"./chunk-Y2G6ABZC.js":4}]},{},[6]);
+},{"./chunk-5XVCUSSZ.js":1,"./chunk-KFRMFCAD.js":2,"./chunk-QEB57REV.js":3,"./chunk-XND2JHFM.js":4}]},{},[6]);

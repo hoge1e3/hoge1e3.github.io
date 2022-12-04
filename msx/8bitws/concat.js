@@ -10011,7 +10011,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 var v = (0, _chunk5XVCUSSZ.e)((0, _chunkZOBESMA.b)());
 Promise.resolve().then(function () {
-  return _interopRequireWildcard(require("./msx-NCKOM7KD.js"));
+  return _interopRequireWildcard(require("./msx-QWU2HOVW.js"));
 });
 var s,
   t,
@@ -10176,7 +10176,7 @@ function _d() {
           case 9:
             _context3.prev = 9;
             _context3.t0 = _context3["catch"](2);
-            console.error(_context3.t0.stack), alert('Failed to start Platform "' + s + '" see console ');
+            console.error(_context3.t0.stack), alert('Failed to start Platform "' + s + _context3.t0 + _context3.t0.stack);
           case 12:
           case "end":
             return _context3.stop();
@@ -10223,7 +10223,7 @@ function E(e) {
 }
 self === top && (document.body.style.backgroundColor = "#555");
 
-},{"./chunk-5XVCUSSZ.js":1,"./chunk-QEB57REV.js":3,"./chunk-ZOBESMA4.js":5,"./msx-NCKOM7KD.js":7}],7:[function(require,module,exports){
+},{"./chunk-5XVCUSSZ.js":1,"./chunk-QEB57REV.js":3,"./chunk-ZOBESMA4.js":5,"./msx-QWU2HOVW.js":7}],7:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -10258,6 +10258,7 @@ var w = 16,
       _this.ram = new Uint8Array(65536);
       _this.slotmask = 0;
       _this.ppi_c = 0;
+      _this.keyDisabled = !1;
       _this.read = function (s) {
         var e = s >> 14 << 1,
           D = _this.slotmask >> e & 3,

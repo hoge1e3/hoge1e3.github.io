@@ -1,0 +1,13 @@
+{
+	"short_name": "acepad-demo",
+	"name": "acepad-demo",
+	"display": "fullscreen",
+	"start_url": "../index.html",
+	"icons": [
+		{
+			"src": "192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	]
+}

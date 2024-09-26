@@ -57,8 +57,8 @@ function init(){
                 loadScriptTag,
             };
             FS.mount("/tmp/",FS.LSFS.ramDisk());
-            //networkBoot("acepad/setup.zip");
-            afterInit(o);
+            networkBoot("acepad/setup.zip");
+            //afterInit(o);
         }
     });
 }

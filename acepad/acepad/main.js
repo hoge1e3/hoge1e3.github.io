@@ -57,14 +57,14 @@ function init(){
                 loadScriptTag,
             };
             FS.mount("/tmp/",FS.LSFS.ramDisk());
-            networkBoot("acepad/setup.zip");
-            //afterInit(o);
+            //networkBoot("acepad/setup.zip");
+            afterInit(o);
         }
     });
 }
 function afterInit({FS}){
     const rp=FS.get("/package.json");
-    btn("Setup/Restore",()=>networkBoot("acepad/setup.zip"));
+    btn("Boot start!",()=>networkBoot("acepad/setup.zip"));
     console.log(rp.exists());
     if(rp.exists()){
         const o=rp.obj();
@@ -82,6 +82,13 @@ function afterInit({FS}){
 addEventListener("load",init);
 function btn(c,a){
     let b=document.createElement("button");
+    b.setAttribute("style",`display:block;
+    width: 80%;
+    paddding 10%;
+    font-size:30px;
+    font-color: white;
+    background: #8da;
+`);
     b.innerText=c;
     document.body.append(b);
     b.addEventListener("click", async()=>{

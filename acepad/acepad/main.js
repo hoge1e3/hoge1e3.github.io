@@ -1,7 +1,7 @@
 //onerror=alert.bind(window);
 /*global globalThis*/
-import pNode from "../../petit-node/dist/index.js";
-import "../../petit-node/test/console.js";
+import pNode from "./petit-node/index.js";
+import "./petit-node/console.js";
 
 globalThis.pNode=pNode;
 //alert(globalThis.pNode);

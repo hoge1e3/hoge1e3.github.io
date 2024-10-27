@@ -1,5 +1,5 @@
 /*global globalThis*/
-import pNode from "/rewrite/docker/8085/petit-node/dist/index.js";
+import pNode from "./petit-node/index.js";
 import "./petit-node/console.js";
 const SETUP_URL="acepad/setup.zip";
 const timeout=(t)=>new Promise(s=>setTimeout(s,t));

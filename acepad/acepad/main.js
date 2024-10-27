@@ -1,11 +1,14 @@
-//onerror=alert.bind(window);
 /*global globalThis*/
-import pNode from "./petit-node/index.js";
+import pNode from "/rewrite/docker/8085/petit-node/dist/index.js";
 import "./petit-node/console.js";
+const SETUP_URL="acepad/setup.zip";
+const timeout=(t)=>new Promise(s=>setTimeout(s,t));
 
 globalThis.pNode=pNode;
 //alert(globalThis.pNode);
 let FS;
+let menus;
+let autoexec;
 function installPWA(){
     if ('serviceWorker' in navigator) {
         if(document.readyState === "complete")start();
@@ -41,9 +44,42 @@ async function networkBoot(url){
     const run=FS.get("/tmp/run/");
     await unzipURL(url, run);
     status("Boot start!");
+    rmbtn();
     await pNode.importModule(run);
 }
+function initCss(){
+    const style = document.createElement('style');
+    style.appendChild(document.createTextNode(`
+    .menubtn {
+        color: #008;
+        width:100px;
+        height:100px;
+    }
+    button:active{
+        background:#ccc;
+    }
+    .menus{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .autob{
+        background: #dc2;
+    }
+    .stop{
+        background: #d20;
+        position:absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+    `));
+    document.head.appendChild(style);
+    menus=document.createElement('div');
+    menus.classList.add("menus");
+    document.body.appendChild(menus);
+    
+}
 function init(){
+    initCss();
     console.log("init");
     pNode.boot({
         init(o){
@@ -62,40 +98,86 @@ function init(){
         }
     });
 }
+function rmbtn(){
+    for(let b of document.querySelectorAll('button')){
+        b.parentNode.removeChild(b);
+    }
+}
 function afterInit({FS}){
     const rp=FS.get("/package.json");
-    btn("Boot start!",()=>networkBoot("acepad/setup.zip"));
+    btn("Setup/<br/>Restore",()=>networkBoot(SETUP_URL));
+    btn("Insert<br/>Boot Disk",()=>casettePon());
     console.log(rp.exists());
     if(rp.exists()){
         const o=rp.obj();
         if(o.menus){
             for(let k in o.menus){
                 const run=o.menus[k];
+                let main,auto;
+                if(typeof run==="object"){
+                    main=run.main;
+                    auto=run.auto;
+                }else{
+                    main=run;
+                }
                 btn(k,async ()=>{
-                    await console.log("start",run);
-                    await pNode.importModule(FS.get(run));
-                });
+                    rmbtn();
+                    await console.log("start",main);
+                    await timeout(10);
+                    await pNode.importModule(FS.get(main));
+                },auto);
             }
         }
     }
 }
 addEventListener("load",init);
-function btn(c,a){
+function btn(c,a,auto){
     let b=document.createElement("button");
-    b.setAttribute("style",`display:block;
-    width: 80%;
-    paddding 10%;
-    font-size:30px;
-    font-color: white;
-    background: #8da;
-`);
-    b.innerText=c;
+    b.classList.add("menubtn");
+    b.innerHTML=c;
+    menus.append(b);
+    const act=async()=>{
+        try {
+            abortAuto();
+            await a();
+        }catch(e){alert(e);}
+    };
+    b.addEventListener("click", act);	    
+    if(auto){
+        b.classList.add("autob");
+        console.log("auto start ",c," in 2 seconds.");
+        autoexec=act;
+        stopBtn();
+    }
+}
+function abortAuto(){
+    const b=document.querySelector("button.stop");
+    if(b)document.body.removeChild(b);
+    console.log("Boot aborted.");
+    autoexec=null;
+}
+function stopBtn(){
+    if(document.querySelector("button.stop"))return ;
+    const b=document.createElement("button");
+    b.classList.add("menubtn");
+    b.classList.add("stop");
+    
+    b.innerHTML="Stop<br>auto start<br>2";
     document.body.append(b);
-    b.addEventListener("click", async()=>{
-      try {
-          await a();
-      }catch(e){alert(e);}
-    });	    
+    const act=async()=>{
+        abortAuto();
+    };
+    b.addEventListener("click", act);	    
+    setTimeout(async()=>{
+        if(b.parentNode){
+            b.parentNode.removeChild(b);
+        }
+        await timeout(10);
+        if(autoexec)autoexec();
+    },2000);
+    setTimeout(()=>{
+        b.innerHTML="Stop<br>auto start<br>1";
+    },1000);
 }
 
 function getQueryString(key, default_) {
@@ -110,13 +192,13 @@ function decodeURLComponentEx(s) {
 }
 
 function loadScriptTag(url,attr){
-/*global define,requirejs*/
+    /*global define,requirejs*/
     if (attr.type!=="module" && 
-        typeof define==="function" && 
-        define.amd && 
-        typeof requirejs==="function") {
+    typeof define==="function" && 
+    define.amd && 
+    typeof requirejs==="function") {
         return new Promise(
-            (s)=>requirejs([url],(r)=>s(r)));
+        (s)=>requirejs([url],(r)=>s(r)));
     }
     const script = document.createElement('script');
     script.src = url;
@@ -124,9 +206,21 @@ function loadScriptTag(url,attr){
         script.setAttribute(k,attr[k]);
     }
     return new Promise(
-        function (resolve,reject){
-            script.addEventListener("load",resolve);
-            script.addEventListener("error",reject);
-            document.head.appendChild(script);
+    function (resolve,reject){
+        script.addEventListener("load",resolve);
+        script.addEventListener("error",reject);
+        document.head.appendChild(script);
+    });
+}
+function casettePon() {
+    const cas=document.createElement("input");
+    cas.setAttribute("type","file");
+    document.body.appendChild(cas);
+    //const cas=document.querySelector("#casette");
+    cas.addEventListener("input",async function () {
+        const run=FS.get("/tmp/run/");
+        await unzipBlob(this.files[0],run);
+        rmbtn();
+        pNode.importModule(run);
     });
 }

@@ -103,6 +103,25 @@ function rmbtn(){
         b.parentNode.removeChild(b);
     }
 }
+
+const handlers={
+    async oncompilestart({entry}) {
+        await timeout(0);
+        console.log("Compile start ",entry.file.path());
+    },
+    async onwaitcompiled({entry}) {
+        await timeout(0);
+        console.log("Waiting for end Compile ",entry.file.path());
+    },
+    async oncompiled({module}) {
+        await timeout(0);
+        console.log("Compile complete ",module.file.path());
+    },
+    async oncachehit({module}) {
+        await timeout(0);
+        console.log("In cache ",module.file.path());
+    }
+};
 function afterInit({FS}){
     const rp=FS.get("/package.json");
     btn("Setup/<br/>Restore",()=>networkBoot(SETUP_URL));
@@ -119,9 +138,10 @@ function afterInit({FS}){
                     auto=run.auto;
                     if (auto) {
                         try {
-                            pNode.createModuleURL(FS.get(main)).then(
-                                r=>console.log("Prefetched auto start",r),
-                                e=>console.error(e)
+                            const e=pNode.resolveEntry(FS.get(main));
+                            e.compile(handlers).then(
+                                r=>console.log("Prefetched auto start",r.url),
+                                e=>console.error(e),
                             );
                         }catch(e) {
                             console.error(e);
@@ -133,7 +153,7 @@ function afterInit({FS}){
                 btn(k,async ()=>{
                     rmbtn();
                     await console.log("start",main);
-                    await timeout(10);
+                    await timeout(0);
                     await pNode.importModule(FS.get(main));
                 },auto);
             }

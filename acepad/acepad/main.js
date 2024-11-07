@@ -117,6 +117,16 @@ function afterInit({FS}){
                 if(typeof run==="object"){
                     main=run.main;
                     auto=run.auto;
+                    if (auto) {
+                        try {
+                            pNode.createModuleURL(FS.get(main)).then(
+                                r=>console.log("Prefetched auto start",r),
+                                e=>console.error(e)
+                            );
+                        }catch(e) {
+                            console.error(e);
+                        }
+                    }
                 }else{
                     main=run;
                 }

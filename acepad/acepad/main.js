@@ -104,22 +104,19 @@ function rmbtn(){
     }
 }
 
+
 const handlers={
     async oncompilestart({entry}) {
         await timeout(0);
         console.log("Compile start ",entry.file.path());
     },
-    async onwaitcompiled({entry}) {
-        await timeout(0);
-        console.log("Waiting for end Compile ",entry.file.path());
-    },
     async oncompiled({module}) {
         await timeout(0);
         console.log("Compile complete ",module.file.path());
     },
-    async oncachehit({module}) {
+    async oncachehit({entry}) {
         await timeout(0);
-        console.log("In cache ",module.file.path());
+        if (entry) console.log("In cache ",entry.file.path());
     }
 };
 function afterInit({FS}){

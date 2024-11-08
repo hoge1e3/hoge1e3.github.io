@@ -5,7 +5,7 @@
 <script>window.addEventListener('error', function(event) {
     try {
         if (event.target.tagName === 'SCRIPT') {
-            alert('Script error!?:'+event.target.src);
+            alert('Script error!?:'+(event.target.src||event.target.getAttribute("src")));
             // Handle the error
         }
         alert(Object.keys(event).join(", "));

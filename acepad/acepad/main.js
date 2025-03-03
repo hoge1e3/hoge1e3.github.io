@@ -1,11 +1,15 @@
 /*global globalThis*/
-import pNode from "./petit-node/index.js";
+import pNode from "https://unpkg.com/petit-node@latest/dist/index.js";
+//import pNode from "./petit-node/index.js";
 import "./petit-node/console.js";
 const SETUP_URL="acepad/setup.zip";
 const timeout=(t)=>new Promise(s=>setTimeout(s,t));
 
 globalThis.pNode=pNode;
-//alert(globalThis.pNode);
+if(!localStorage["/"]){
+    localStorage["/"]="{}";
+}
+
 let FS;
 let menus;
 let autoexec;
@@ -38,14 +42,24 @@ async function unzipBlob(blob, dest) {
     let zip=FS.get("/tmp/setup.zip");
     await zip.setBlob(blob);
     dest.mkdir();
-    await FS.zip.unzip(zip,dest);
+    await FS.zip.unzip(zip,dest,{v:1});
+}
+function fixrun(run){
+    const ls=run.ls();
+    
+    console.log(ls.join(","));
+    if(!ls.includes("package.json")&&
+    ls.length==1){
+        run=run.rel(ls[0]);
+    }
+    return run;
 }
 async function networkBoot(url){
     const run=FS.get("/tmp/run/");
     await unzipURL(url, run);
     status("Boot start!");
     rmbtn();
-    await pNode.importModule(run);
+    await pNode.importModule(fixrun(run));
 }
 function initCss(){
     const style = document.createElement('style');
@@ -92,7 +106,7 @@ function init(){
                 convertStack:pNode.convertStack,
                 loadScriptTag,
             };
-            FS.mount("/tmp/",FS.LSFS.ramDisk());
+            FS.mount("/tmp/","ram");
             //networkBoot("acepad/setup.zip");
             afterInit(o);
         }
@@ -112,7 +126,7 @@ const handlers={
     },
     async oncompiled({module}) {
         await timeout(0);
-        console.log("Compile complete ",module.file.path());
+        console.log("Compile complete ",module.entry.file.path());
     },
     async oncachehit({entry}) {
         await timeout(0);
@@ -123,7 +137,9 @@ function afterInit({FS}){
     const rp=FS.get("/package.json");
     btn("Setup/<br/>Restore",()=>networkBoot(SETUP_URL));
     btn("Insert<br/>Boot Disk",()=>casettePon());
-    console.log(rp.exists());
+    btn("Reset all",()=>resetall());
+    
+    console.log("rp",rp.exists());
     if(rp.exists()){
         const o=rp.obj();
         if(o.menus){
@@ -136,9 +152,10 @@ function afterInit({FS}){
                     if (auto) {
                         try {
                             const e=pNode.resolveEntry(FS.get(main));
-                            e.compile(handlers).then(
-                                r=>console.log("Prefetched auto start",r.url),
-                                e=>console.error(e),
+                            const compiler=pNode.ESModuleCompiler.create(handlers);
+                            compiler.compile(e).then(
+                            r=>console.log("Prefetched auto start",r.url),
+                            e=>console.error(e),
                             );
                         }catch(e) {
                             console.error(e);
@@ -167,7 +184,7 @@ function btn(c,a,auto){
         try {
             abortAuto();
             await a();
-        }catch(e){alert(e);}
+        }catch(e){console.error(e.message+"\n"+e.stack);}
     };
     b.addEventListener("click", act);	    
     if(auto){
@@ -248,6 +265,14 @@ function casettePon() {
         const run=FS.get("/tmp/run/");
         await unzipBlob(this.files[0],run);
         rmbtn();
-        pNode.importModule(run);
+        pNode.importModule(fixrun(run));
     });
 }
+
+async function resetall(a){
+    if(prompt("type 'really' to clear all data")!=="really")return;
+    for(let k in localStorage){
+        delete localStorage[k];
+    }
+}
+

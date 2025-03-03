@@ -7,11 +7,11 @@ const VERSION = '005';
 const CACHE_NAME = NAME + VERSION;
 const urlsToCache = [
     //'./index.html',
-    "https://www.tonyu.jp/e/js/lib/ace-noconflict/ace.js",
+    /*"https://www.tonyu.jp/e/js/lib/ace-noconflict/ace.js",
     "https://www.tonyu.jp/e/js/lib/ace-noconflict/ext-language_tools.js",
     "https://www.tonyu.jp/e/js/lib/jquery-1.12.1.js",
     "https://www.tonyu.jp/e/js/fs/FS.js",
-    "https://www.tonyu.jp/e/js/lib/jszip.min.js",
+    "https://www.tonyu.jp/e/js/lib/jszip.min.js",*/
 ];
 
 // Service Worker へファイルをインストール

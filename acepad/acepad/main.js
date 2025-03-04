@@ -139,7 +139,7 @@ function afterInit({FS}){
     btn("Insert<br/>Boot Disk",()=>casettePon());
     btn("Reset all",()=>resetall());
     
-    console.log("rp",rp.exists());
+    //console.log("rp",rp.exists());
     if(rp.exists()){
         const o=rp.obj();
         if(o.menus){

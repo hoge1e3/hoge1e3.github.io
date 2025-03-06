@@ -266,7 +266,7 @@ function casettePon() {
     document.body.appendChild(cas);
     //const cas=document.querySelector("#casette");
     cas.addEventListener("input",async function () {
-        const run=FS.get("/tmp/run/");
+        const run=FS.get("/tmp/boot/");
         await unzipBlob(this.files[0],run);
         rmbtn();
         pNode.importModule(fixrun(run));

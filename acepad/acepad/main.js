@@ -39,7 +39,7 @@ async function unzipURL(url, dest) {
 }
 async function unzipBlob(blob, dest) {
     status("unzipping blob ");
-    let zip=FS.get("/tmp/setup.zip");
+    let zip=FS.get("/tmp/boot.zip");
     await zip.setBlob(blob);
     dest.mkdir();
     await FS.zip.unzip(zip,dest,{v:1});
@@ -55,11 +55,11 @@ function fixrun(run){
     return run;
 }
 async function networkBoot(url){
-    const run=FS.get("/tmp/run/");
-    await unzipURL(url, run);
+    const boot=FS.get("/tmp/boot/");
+    await unzipURL(url, boot);
     status("Boot start!");
     rmbtn();
-    await pNode.importModule(fixrun(run));
+    await pNode.importModule(fixrun(boot));
 }
 function initCss(){
     const style = document.createElement('style');
@@ -116,19 +116,23 @@ function rmbtn(){
     for(let b of document.querySelectorAll('button')){
         b.parentNode.removeChild(b);
     }
+    quick=1;
 }
 
-
+let quick;
 const handlers={
     async oncompilestart({entry}) {
+        if(quick)return;
         await timeout(0);
         console.log("Compile start ",entry.file.path());
     },
     async oncompiled({module}) {
+        if(quick)return;
         await timeout(0);
         console.log("Compile complete ",module.entry.file.path());
     },
     async oncachehit({entry}) {
+        if(quick)return;
         await timeout(0);
         if (entry) console.log("In cache ",entry.file.path());
     }
@@ -137,7 +141,7 @@ function afterInit({FS}){
     const rp=FS.get("/package.json");
     btn("Setup/<br/>Restore",()=>networkBoot(SETUP_URL));
     btn("Insert<br/>Boot Disk",()=>casettePon());
-    btn("Reset all",()=>resetall());
+    btn("Factory<br/>Reset",()=>resetall());
     
     //console.log("rp",rp.exists());
     if(rp.exists()){

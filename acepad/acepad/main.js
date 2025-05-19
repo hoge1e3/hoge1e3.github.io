@@ -1,14 +1,23 @@
 /*global globalThis*/
-import pNode from "https://unpkg.com/petit-node@latest/dist/index.js";
-//import pNode from "./petit-node/index.js";
-import "./petit-node/console.js";
-const SETUP_URL="acepad/setup.zip";
-const timeout=(t)=>new Promise(s=>setTimeout(s,t));
 
-globalThis.pNode=pNode;
-if(!localStorage["/"]){
-    localStorage["/"]="{}";
+const timeout=(t)=>new Promise(s=>setTimeout(s,t));
+const PNODE_VER=globalThis.PNODE_VER;
+const PNODE_URL=`https://cdn.jsdelivr.net/npm/petit-node@${PNODE_VER}/dist/index.js`;
+console.log(document.readyState);
+async function onload() {
+    const pNode=await import(PNODE_URL);
+    globalThis.pNode=pNode;
+    await import("./console.js");
+    console.log("PNODE_VER",PNODE_VER);
+    console.log("PNODE_URL",PNODE_URL);
+    const SETUP_URL="acepad/setup.zip";
+    if(!localStorage["/"]){
+        localStorage["/"]="{}";
+    }
+    init();
 }
+if (document.readyState==="complete") onload();
+else addEventListener("load",onload);
 
 let FS;
 let menus;
@@ -18,12 +27,21 @@ function installPWA(){
         if(document.readyState === "complete")start();
         else window.addEventListener('load', start);
     }
-    function start() {
-        navigator.serviceWorker.register('acepad/sw.js').then(function(registration) {
+    async function start() {
+        try {
+            const registration=await navigator.serviceWorker.register('./sw.js');
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
+            console.log("registration",registration);
+            const sw=globalThis.__serviceWorker__=registration.active;
+            navigator.serviceWorker.addEventListener("message",({data})=>{
+                console.log("CACHE_NAME",data.CACHE_NAME);
+                globalThis.__CACHE_NAME__=data.CACHE_NAME;
+            });
+            sw.postMessage("");
+        }catch(err) {
+            console.error(err);
             console.log('ServiceWorker registration failed: ', err);
-        });
+        }
     }
 }
 installPWA();
@@ -55,7 +73,7 @@ function fixrun(run){
     return run;
 }
 async function networkBoot(url){
-    const boot=FS.get("/tmp/boot/");
+    const boot=FS.get(FS.getEnv("boot"));
     await unzipURL(url, boot);
     status("Boot start!");
     rmbtn();
@@ -96,7 +114,7 @@ function init(){
     initCss();
     console.log("init");
     pNode.boot({
-        init(o){
+        async init(o){
             globalThis.FS=FS=o.FS.default;
             FS.os={
                 importModule:pNode.importModule,
@@ -106,7 +124,13 @@ function init(){
                 convertStack:pNode.convertStack,
                 loadScriptTag,
             };
+            FS.setEnv("PNODE_VER",PNODE_VER);
+            FS.setEnv("PNODE_URL",PNODE_URL);
+            FS.setEnv("boot","/tmp/boot/");
+            console.log("Mounting RAM/IDB");
             FS.mount("/tmp/","ram");
+            await FS.mountAsync("/idb/","idb");
+            console.log("Done");
             //networkBoot("acepad/setup.zip");
             afterInit(o);
         }
@@ -172,13 +196,14 @@ function afterInit({FS}){
                     rmbtn();
                     await console.log("start",main);
                     await timeout(0);
-                    await pNode.importModule(FS.get(main));
+                    const mainF=FS.get(main);
+                    FS.setEnv("boot",mainF);
+                    await pNode.importModule(mainF);
                 },auto);
             }
         }
     }
 }
-addEventListener("load",init);
 function btn(c,a,auto){
     let b=document.createElement("button");
     b.classList.add("menubtn");
@@ -266,7 +291,7 @@ function casettePon() {
     document.body.appendChild(cas);
     //const cas=document.querySelector("#casette");
     cas.addEventListener("input",async function () {
-        const run=FS.get("/tmp/boot/");
+        const run=FS.get(FS.getEnv("boot"));
         await unzipBlob(this.files[0],run);
         rmbtn();
         pNode.importModule(fixrun(run));

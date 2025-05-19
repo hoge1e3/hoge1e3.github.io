@@ -5,12 +5,15 @@
 <script>window.addEventListener('error', function(event) {
     if (event.target.tagName === 'SCRIPT') {
         alert('Script error:'+event.target.src);
-        // Handle the error
-    }alert(event.message||event.toString());
+    }alert(event.message+(event.stack?event.stack:"")||event.toString());
     console.error(event);
 }, true);</script>
 <link rel="manifest" href="acepad/manifest.json"/>
-<script type="module" src="acepad/main.js"></script>
+<script type="module">
+globalThis.PNODE_VER="1.3.6";
+const src=`./acepad/main.js?${globalThis.PNODE_VER}`;
+import(src);
+</script>
 </head>
 <body>
 </body>

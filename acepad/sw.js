@@ -1,5 +1,5 @@
 const NAME = 'acepad-os';
-const VERSION = '023';
+const VERSION = '024';
 const CACHE_NAME = NAME + VERSION;
 const urlsToCache = [
     //"./test.js",

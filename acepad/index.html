@@ -5,13 +5,19 @@
 <script>window.addEventListener('error', function(event) {
     if (event.target.tagName === 'SCRIPT') {
         alert('Script error:'+event.target.src);
-    }alert(event.message+(event.stack?event.stack:"")||event.toString());
+    }
+    if (event.error) {
+        const e=event.error;
+        alert(((e.message||"")+(e.stack||""))||e.toString());
+    } else {
+        alert(event.toString());
+    }
     console.error(event);
 }, true);</script>
 <link rel="manifest" href="acepad/manifest.json"/>
 <script type="module">
-globalThis.PNODE_VER="1.3.6";
-const src=`./acepad/main.js?${globalThis.PNODE_VER}`;
+globalThis.PNODE_VER="1.4.3";
+const src=`./acepad/main3.js?${globalThis.PNODE_VER}`;
 import(src);
 </script>
 </head>

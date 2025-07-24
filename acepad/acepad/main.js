@@ -8,6 +8,7 @@ async function onload() {
     const pNode=await import(PNODE_URL);
     globalThis.pNode=pNode;
     await import("./console.js");
+    console.log("process",process);
     console.log("PNODE_VER",PNODE_VER);
     console.log("PNODE_URL",PNODE_URL);
     const SETUP_URL="acepad/setup.zip";
@@ -124,7 +125,7 @@ function init(){
                 convertStack:pNode.convertStack,
                 loadScriptTag,
             };
-            FS.setEnv("PNODE_VER",PNODE_VER);
+            FS.setEnv("PNODE_VER",pNode.version);
             FS.setEnv("PNODE_URL",PNODE_URL);
             FS.setEnv("boot","/tmp/boot/");
             console.log("Mounting RAM/IDB");
@@ -164,7 +165,7 @@ const handlers={
 function afterInit({FS}){
     const rp=FS.get("/package.json");
     btn("Setup/<br/>Restore",()=>networkBoot(SETUP_URL));
-    btn("Insert<br/>Boot Disk",()=>casettePon());
+    btn("Insert<br/>Boot Disk",()=>insertBootDisk());
     btn("Factory<br/>Reset",()=>resetall());
     
     //console.log("rp",rp.exists());
@@ -285,7 +286,7 @@ function loadScriptTag(url,attr){
         document.head.appendChild(script);
     });
 }
-function casettePon() {
+function insertBootDisk() {
     const cas=document.createElement("input");
     cas.setAttribute("type","file");
     document.body.appendChild(cas);

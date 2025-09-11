@@ -2,25 +2,52 @@
 <html lang="ja">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
-<script>window.addEventListener('error', function(event) {
+<script>
+let alc=0;
+const alerts=(...a)=>{
+    alc++;
+    if (alc>=5) return;
+    return alert(...a);
+};
+window.addEventListener('error', function(event) {
     if (event.target.tagName === 'SCRIPT') {
         alert('Script error:'+event.target.src);
     }
     if (event.error) {
         const e=event.error;
-        alert(((e.message||"")+(e.stack||""))||e.toString());
+        console.error(e);
+        alerts(((e.message||"")+(e.stack||""))||e.toString());
     } else {
-        alert(event.toString());
+        console.error(event);
+        alerts(event.message||event.toString());
     }
-    console.error(event);
 }, true);</script>
-<link rel="manifest" href="acepad/manifest.json"/>
-<script type="module">
-globalThis.PNODE_VER="1.4.3";
-const src=`./acepad/main3.js?${globalThis.PNODE_VER}`;
-import(src);
-</script>
+<link rel="stylesheet" href="css/style.css"/>
+<!--link rel="stylesheet" href="css/file-icon.css"/-->
+<link rel="manifest" href="./manifest.json"/>
 </head>
 <body>
+  <div id="file-icon">
+    welcome to pnode-bootkit!
+    <div class="menus"></div>
+    <div class="submenus" style="display: none;"></div>
+    <div class="modal-container" style="display: none;">
+      <div class="modal-dialog upload" style="display: none;">
+        <input type="file" class="file"/>
+        <a class="sample" href=""></a>
+      </div>
+      <div class="modal-dialog splash" style="display: none;">
+        Wait...
+      </div>
+    </div>
+  </div>
+  <script type="module">
+globalThis.PNODE_VER="1.5.0";
+const src=`./js/main.js?${globalThis.PNODE_VER}`;
+import(src);
+  </script>
 </body>
+<!--
+npx http-server -o index.html 
+-->
 </html>

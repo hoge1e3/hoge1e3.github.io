@@ -1,11 +1,11 @@
 {
-    "short_name": "acepad-gio",
-    "name": "acepad-gio",
+    "short_name": "bootkit",
+    "name": "bootkit",
     "display": "fullscreen",
-    "start_url": "../index.html",
+    "start_url": "./index.html",
     "icons": [
         {
-            "src": "192x192.png",
+            "src": "image/192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         }

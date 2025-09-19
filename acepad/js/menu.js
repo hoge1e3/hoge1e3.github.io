@@ -44,12 +44,12 @@ export function showMenus(rp){
         showSubmenus(rp);
     }
     if (process.env.SETUP_URL) {
-        btn(["🗃","Install/Rescue"],()=>networkBoot(process.env.SETUP_URL));
+        btn(["💾","Install/Rescue"],()=>networkBoot(process.env.SETUP_URL));
     }
     btn(["💿","Insert Boot Disk"],()=>insertBootDisk());
     btn(["💣","Factory Reset"],()=>resetall());
     btn(["📦","Full backup"],()=>fullBackup());
-    btn(["🖥","Console"],()=>showConsole());
+    btn(["💻","Console"],()=>showConsole());
     //console.log("rp",rp.exists());
 }
 function showConsole(){

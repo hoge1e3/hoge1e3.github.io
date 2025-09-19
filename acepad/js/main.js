@@ -32,9 +32,9 @@ async function onload() {
         console.log("Scripts prefetched.");
     });
     const pNode=await init({
-        BOOT_DISK_URL:"https://acepad.tonyu.jp/download.php",
+        BOOT_DISK_URL:`https://acepad.tonyu.jp/download.php?c=${Math.random()}`,
         PNODE_URL,
-        SETUP_URL:"https://acepad.tonyu.jp/download.php",
+        SETUP_URL:`https://acepad.tonyu.jp/download.php?c=${Math.random()}`,
         INSTALL_DIR:"/idb/run",
         RESCUE_DIR:"/tmp/run",
     });

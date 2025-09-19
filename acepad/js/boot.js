@@ -106,11 +106,12 @@ export async function resetall(a){
     const FS=pNode.getFS();
     for (let {mountPoint,fsType,options} of tab) {
       if(fsType==="idb"){
-        console.log("DELETING", mountPoint);
+        await deleteAllTablesInDatabase(options.dbName);
+        /*console.log("DELETING", mountPoint);
         for(let f of pNode.file(mountPoint).listFiles()){
           console.log("DELETING", f.path());
           f.rm({r:true});
-        }
+        }*/
       }
     }
     for(let k in localStorage){
@@ -127,9 +128,42 @@ export async function resetall(a){
 export async function fullBackup(){
     const pNode=getInstance();
     const FS=pNode.getFS();
-      const sp=showModal(".splash");
-  await splash("zipping...",sp);
-
+    const sp=showModal(".splash");
+    await splash("zipping...",sp);
     await FS.zip.zip(FS.get("/"));
     showModal();
+}
+/** @type (dbName:string)=>Promise<string> */
+function deleteAllTablesInDatabase(dbName) {
+  return new Promise((resolve, reject) => {
+    // データベースを開く
+    const request = indexedDB.open(dbName);
+    request.onsuccess = (event) => {
+        if (!event.target?.result) throw new Error("event.target.result ")
+      const db = event.target.result;
+      // トランザクションを開始（すべてのオブジェクトストアにアクセスする）
+      const transaction = db.transaction(db.objectStoreNames, 'readwrite');
+      transaction.oncomplete = () => {
+        // トランザクションが成功した場合、データベースを閉じてPromiseを解決
+        db.close();
+        resolve(`All tables in the database "${dbName}" have been deleted.`);
+      };
+      transaction.onerror = (event) => {
+        // トランザクション中にエラーが発生した場合、データベースを閉じてPromiseを拒否
+        db.close();
+        reject(`Error deleting tables in the database "${dbName}": ${event.target.error}`);
+      };
+
+      // オブジェクトストアをすべて削除
+      Object.keys(db.objectStoreNames).forEach(i => {
+        console.log("Deleting", db.objectStoreNames[i]);
+        const store = transaction.objectStore(db.objectStoreNames[i]);
+        store.clear();  // 各オブジェクトストアを削除（clear()はストア内の全データを削除）
+      });
+    };
+    request.onerror = (event) => {
+      // データベースのオープンに失敗した場合
+      reject(`Failed to open the database "${dbName}": ${event.target.error}`);
+    };
+  });
 }

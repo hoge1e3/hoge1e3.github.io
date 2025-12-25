@@ -1,20 +1,35 @@
 //@ts-check
-import { getGlobal,getValue } from "./global.js";
+/** 
+ * @typedef { import("./types").SFile } SFile
+ * @typedef { import("./types").Menus } Menus
+ * @typedef { import("./types").Menu } Menu
+ * @typedef { import("./types").ShowModal } ShowModal
+ * @typedef { import("./types").Splash } Splash
+ * @typedef { import("./types").WireUIDC } WireUIDC
+ * @typedef { import("./types").RootPackageJSON } RootPackageJSON
+ * @typedef { import("./types.js").WSFileInfo } WSFileInfo
+ */
+import { getValue } from "./global.js";
 import { getInstance } from "./pnode.js";
-import { qsExists, timeout,can } from "./util.js";
-import { getMountPromise,readFstab } from "./fstab.js";
+import { qsExists, timeout,can, getEnv } from "./util.js";
+import { getMountPromise,readFstab, } from "./fstab.js";
 
-let rmbtn=()=>0;
-let showModal=(show)=>0;
-let splash=(mesg, dom)=>0;
+let rmbtn=()=>{};
+/**@type ShowModal */
+export let showModal=(show)=>document.body;
+/**@type Splash */
+export let splash=async (mesg, dom)=>{};
+/**@type (dc:WireUIDC)=>void*/
 export function wireUI(dc){
   rmbtn=dc.rmbtn;
   showModal=dc.showModal;
   splash=dc.splash;
 }
+/**@type (...a:any[])=>void */
 function status(...a){
     console.log(...a);
 }
+/**@type (url:string, dest:SFile)=>Promise<void> */
 export async function unzipURL(url, dest) {
     status("Fetching: "+url);
     const response = await fetch(url);
@@ -23,6 +38,7 @@ export async function unzipURL(url, dest) {
     console.log("Unpacking");
     return await unzipBlob(blob,dest);
 }
+/**@type (blob:Blob, dest:SFile)=>Promise<void> */
 export async function unzipBlob(blob, dest) {
     const pNode=getInstance();
     const FS=pNode.getFS();
@@ -32,6 +48,7 @@ export async function unzipBlob(blob, dest) {
     dest.mkdir();
     await FS.zip.unzip(zip,dest,{v:1});
 }
+/**@type (run:SFile)=>SFile */
 export function fixrun(run){
     try{
         if(run.isDir())return run;
@@ -45,17 +62,18 @@ export function fixrun(run){
     }
     return run;
 }
+/**@type (url:string)=>Promise<void> */
 export async function networkBoot(url){
     await getMountPromise();
     const pNode=getInstance();
-    let boot=pNode.file(process.env.INSTALL_DIR);
+    let boot=pNode.file(getEnv("INSTALL_DIR"));
     let rescue=false;
     if (boot.exists()) {
         if (!confirm(`Found installation in '${process.env.INSTALL_DIR}'. Boot with Rescue mode in '${process.env.RESCUE_DIR}'.`)) return;
-        boot=pNode.file(process.env.RESCUE_DIR);
+        boot=pNode.file(getEnv("RESCUE_DIR"));
         rescue=true;
     }
-    process.env.boot=boot;
+    process.env.boot=boot.path();
     process.env.installation=rescue?"rescue":"install";
     const c=await getValue("readyPromises").vConsole;
     if (c) c.show();
@@ -69,22 +87,16 @@ export async function networkBoot(url){
 }
 export function insertBootDisk() {
     const pNode=getInstance();
-    showModal(true);/*qsExists(".modal-container");
-    modal.setAttribute("style","");*/
-    const cas=qsExists(".modal-dialog.upload");//createElement("input");
-    cas.setAttribute("style","");
-    //document.body.appendChild(cas);
+    const cas=showModal(".upload");
     if (process.env.BOOT_DISK_URL) {
         const a=qsExists(cas, "a");
-        //const dl=document.createElement("div");
         a.innerHTML="Download Sample Boot Disk";
         a.setAttribute("href",process.env.BOOT_DISK_URL);
-        //document.body.appendChild(dl);
     }
-    //const cas=document.querySelector("#casette");
     const file=qsExists(cas, ".file");
     file.addEventListener("input",async function () {
-        const run=pNode.file(process.env.RESCUE_DIR);
+        const run=pNode.file(getEnv("RESCUE_DIR"));
+        //@ts-ignore
         const file=this.files && this.files[0];
         if (!file) throw new Error("File is not selected.");
         const c=await getValue("readyPromises").vConsole;
@@ -96,74 +108,4 @@ export function insertBootDisk() {
         const mod=await pNode.importModule(fixrun(run));
         if(can(mod,"install")) mod.install();
     });
-}
-export async function resetall(a){
-    if(prompt("type 'really' to clear all data")!=="really")return;
-    const sp=showModal(".splash");
-    await splash("deleting...",sp);
-    const tab=readFstab();
-    const pNode=getInstance();
-    const FS=pNode.getFS();
-    for (let {mountPoint,fsType,options} of tab) {
-      if(fsType==="idb"){
-        await deleteAllTablesInDatabase(options.dbName);
-        /*console.log("DELETING", mountPoint);
-        for(let f of pNode.file(mountPoint).listFiles()){
-          console.log("DELETING", f.path());
-          f.rm({r:true});
-        }*/
-      }
-    }
-    for(let k in localStorage){
-        delete localStorage[k];
-    }
-    localStorage["/"]="{}";
-    const r=FS.getRootFS();
-    while(r.hasUncommited()) {
-        await timeout(100);
-    }
-    showModal();
-    location.reload();
-}
-export async function fullBackup(){
-    const pNode=getInstance();
-    const FS=pNode.getFS();
-    const sp=showModal(".splash");
-    await splash("zipping...",sp);
-    await FS.zip.zip(FS.get("/"));
-    showModal();
-}
-/** @type (dbName:string)=>Promise<string> */
-function deleteAllTablesInDatabase(dbName) {
-  return new Promise((resolve, reject) => {
-    // データベースを開く
-    const request = indexedDB.open(dbName);
-    request.onsuccess = (event) => {
-        if (!event.target?.result) throw new Error("event.target.result ")
-      const db = event.target.result;
-      // トランザクションを開始（すべてのオブジェクトストアにアクセスする）
-      const transaction = db.transaction(db.objectStoreNames, 'readwrite');
-      transaction.oncomplete = () => {
-        // トランザクションが成功した場合、データベースを閉じてPromiseを解決
-        db.close();
-        resolve(`All tables in the database "${dbName}" have been deleted.`);
-      };
-      transaction.onerror = (event) => {
-        // トランザクション中にエラーが発生した場合、データベースを閉じてPromiseを拒否
-        db.close();
-        reject(`Error deleting tables in the database "${dbName}": ${event.target.error}`);
-      };
-
-      // オブジェクトストアをすべて削除
-      Object.keys(db.objectStoreNames).forEach(i => {
-        console.log("Deleting", db.objectStoreNames[i]);
-        const store = transaction.objectStore(db.objectStoreNames[i]);
-        store.clear();  // 各オブジェクトストアを削除（clear()はストア内の全データを削除）
-      });
-    };
-    request.onerror = (event) => {
-      // データベースのオープンに失敗した場合
-      reject(`Failed to open the database "${dbName}": ${event.target.error}`);
-    };
-  });
 }

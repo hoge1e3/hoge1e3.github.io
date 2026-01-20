@@ -11,7 +11,7 @@
 /** @type any */
 const g=globalThis;
 
-import {mutablePromise,timeout} from "./util.js";
+import {timeout} from "./util.js";
 import { getInstance } from "./pnode.js";
 /**@type boolean */
 let quick;

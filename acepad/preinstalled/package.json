@@ -1,0 +1,7 @@
+{
+    "menus": {
+        "petit-node": {
+            "main": "./petit-node.js"
+        }
+    }
+}

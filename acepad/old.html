@@ -28,11 +28,13 @@ function err (event) {
     }
 }
 </script>
+<link rel="stylesheet" href="css/style.css"/>
+<!--link rel="stylesheet" href="css/file-icon.css"/-->
 <link rel="manifest" href="./manifest.json"/>
 </head>
 <body>
   <div id="file-icon">
-    <div class="title">WebCartridge, a "clean" Website.</div>
+    Welcome to petit-node!
     <div class="menus"></div>
     <div class="submenus" style="display: none;"></div>
     <div class="modal-container" style="display: none;">
@@ -46,11 +48,12 @@ function err (event) {
     </div>
   </div>
   <script type="module">
-const src=`./webcartridge.js`;
+globalThis.PNODE_VER="1.6.8";
+const src=`./js/main.js?${globalThis.PNODE_VER}`;
 import(src);
   </script>
 </body>
 <!--
-npx http-server -o dist/wcart.html 
+npx http-server -o index.html 
 -->
 </html>

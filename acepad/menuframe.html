@@ -1,0 +1,20 @@
+<body></body>
+<script>
+try {
+    //setTimeout(()=>parent.postMessage("fuge","*"),1000);
+    onmessage=(e)=>{
+        try {
+            console.log(e);
+            if (e.data.type=="eval") {
+                const r=eval(e.data.script+"");
+                parent.postMessage({type:"eval-result", value:r},"*");
+            }
+        } catch(e) {
+            console.error(e);
+            parent.postMessage({type:"error", error:e},"*");
+        } 
+    };
+}catch(e) {
+    document.body.innerHTML+=e+"" ; 
+}
+</script>

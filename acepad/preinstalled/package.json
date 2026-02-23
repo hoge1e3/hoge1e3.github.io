@@ -1,10 +1,8 @@
 {
     "menus": {
         "petit-node": {
-            "main": "./petit-node.js"
-        },
-        "1.6.9": {
-            "main": "./petit-node.1.6.9.js"
+            "main": "./petit-node.js",
+            "secureAuto": true
         }
     }
 }
